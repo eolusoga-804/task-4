@@ -4,7 +4,9 @@ import "./ProductCard.css";
 
 export default function ProductCard({ product, onAddToCart }) {
   const category = storeContent.catalog.categories.find(
-    (item) => item.id === product.category,
+    (item) =>
+      item.id === product.category ||
+      (item.id === "clothing" && product.category.includes("clothing")),
   );
 
   const price = new Intl.NumberFormat(storeContent.catalog.currencyLocale, {
