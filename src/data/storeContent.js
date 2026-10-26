@@ -55,4 +55,11 @@ export const storeContent = {
   footer: {
     copyright: "Made for curious collectors.",
   },
+
+  cart: {
+    storageKey: "emmanuel804-cart",
+    taxRate: 0.08,
+    shippingThreshold: 75,
+    shippingFee: 6.99,
+  },
 };
