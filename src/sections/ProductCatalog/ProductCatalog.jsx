@@ -1,4 +1,4 @@
-// This section loads, searches, filters, and displays the catalog products.
+// This section loads, searches, filters, sorts, and displays catalog products.
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { storeContent } from "../../data/storeContent";
@@ -9,6 +9,7 @@ export default function ProductCatalog() {
   const { products, status, error } = useProducts();
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortOrder, setSortOrder] = useState("featured");
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
@@ -25,6 +26,18 @@ export default function ProductCatalog() {
 
     return matchesCategory && matchesSearch;
   });
+
+  const sortedProducts = [...filteredProducts];
+
+  if (sortOrder === "price-ascending") {
+    sortedProducts.sort((a, b) => a.price - b.price);
+  } else if (sortOrder === "price-descending") {
+    sortedProducts.sort((a, b) => b.price - a.price);
+  } else if (sortOrder === "rating") {
+    sortedProducts.sort(
+      (a, b) => (b.rating?.rate ?? 0) - (a.rating?.rate ?? 0),
+    );
+  }
 
   return (
     <section
@@ -43,18 +56,37 @@ export default function ProductCatalog() {
         </div>
       </div>
 
-      <label className="product-catalog__search">
-        <span className="product-catalog__search-label">
-          {storeContent.catalog.searchLabel}
-        </span>
-        <input
-          className="product-catalog__search-input"
-          type="search"
-          value={searchTerm}
-          placeholder={storeContent.catalog.searchPlaceholder}
-          onChange={(event) => setSearchTerm(event.target.value)}
-        />
-      </label>
+      <div className="product-catalog__tools">
+        <label className="product-catalog__search">
+          <span className="product-catalog__search-label">
+            {storeContent.catalog.searchLabel}
+          </span>
+          <input
+            className="product-catalog__search-input"
+            type="search"
+            value={searchTerm}
+            placeholder={storeContent.catalog.searchPlaceholder}
+            onChange={(event) => setSearchTerm(event.target.value)}
+          />
+        </label>
+
+        <label className="product-catalog__sort">
+          <span className="product-catalog__search-label">
+            {storeContent.catalog.sortLabel}
+          </span>
+          <select
+            className="product-catalog__sort-select"
+            value={sortOrder}
+            onChange={(event) => setSortOrder(event.target.value)}
+          >
+            {storeContent.catalog.sortOptions.map((option) => (
+              <option key={option.id} value={option.id}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
 
       <div
         className="product-catalog__filters"
@@ -86,15 +118,15 @@ export default function ProductCatalog() {
         </p>
       )}
 
-      {status === "success" && filteredProducts.length === 0 && (
+      {status === "success" && sortedProducts.length === 0 && (
         <p className="product-catalog__message">
           {storeContent.catalog.emptyMessage}
         </p>
       )}
 
-      {status === "success" && filteredProducts.length > 0 && (
+      {status === "success" && sortedProducts.length > 0 && (
         <div className="product-catalog__grid">
-          {filteredProducts.map((product) => (
+          {sortedProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </div>
