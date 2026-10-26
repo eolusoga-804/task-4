@@ -1,0 +1,46 @@
+/* This block centers the loading message and animated progress track. */
+.product-loading {
+  min-height: 100px;
+  padding: 18px 12px;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: #635c53;
+  font:
+    0.72rem "DM Mono",
+    monospace;
+  text-align: center;
+}
+
+.product-loading__track {
+  width: min(100%, 280px);
+  height: 5px;
+  overflow: hidden;
+  background: #e9e2d9;
+}
+
+.product-loading__fill {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: #f36b35;
+  animation: product-loading-progress 1.4s ease-in-out infinite alternate;
+}
+
+@keyframes product-loading-progress {
+  from {
+    transform: translateX(-15%);
+  }
+
+  to {
+    transform: translateX(165%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product-loading__fill {
+    width: 100%;
+    animation: none;
+  }
+}

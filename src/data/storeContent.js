@@ -50,6 +50,12 @@ export const storeContent = {
     ratingLabel: "Rating",
     favoriteBadge: "Customer favorite",
     addToBagLabel: "Add to bag",
+    loadingLabel: "Loading the collection",
+    loadingMessages: [
+      "Checking the shelves…",
+      "Picking out the good ones…",
+      "Almost ready…",
+    ],
   },
 
   footer: {
