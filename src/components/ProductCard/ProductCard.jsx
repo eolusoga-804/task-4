@@ -1,4 +1,4 @@
-// This component presents one product and its key details.
+// This component displays one product's image, category, name, price, and rating.
 import { storeContent } from "../../data/storeContent";
 import "./ProductCard.css";
 
@@ -21,6 +21,7 @@ export default function ProductCard({ product, onAddToCart }) {
           alt={product.title}
           loading="lazy"
         />
+
         {product.rating?.rate >= 4.5 && (
           <span className="product-card__badge">
             {storeContent.catalog.favoriteBadge}
@@ -32,10 +33,12 @@ export default function ProductCard({ product, onAddToCart }) {
         <p className="product-card__category">
           {category?.label ?? product.category}
         </p>
+
         <h2 className="product-card__title">{product.title}</h2>
 
         <div className="product-card__meta">
           <span className="product-card__price">{price}</span>
+
           {product.rating && (
             <span
               className="product-card__rating"
@@ -46,13 +49,15 @@ export default function ProductCard({ product, onAddToCart }) {
           )}
         </div>
 
-        <button
-          className="product-card__action"
-          type="button"
-          onClick={() => onAddToCart(product)}
-        >
-          {storeContent.catalog.addToBagLabel}
-        </button>
+        {onAddToCart && (
+          <button
+            className="product-card__action"
+            type="button"
+            onClick={() => onAddToCart(product)}
+          >
+            {storeContent.catalog.addToBagLabel}
+          </button>
+        )}
       </div>
     </article>
   );
