@@ -48,6 +48,31 @@
   text-align: center;
 }
 
+/* This block styles the compact, keyboard-accessible category filters. */
+.product-catalog__filters {
+  margin: 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.product-catalog__filter {
+  padding: 7px 10px;
+  border: 1px solid #d9d0c5;
+  background: transparent;
+  color: #28231f;
+  cursor: pointer;
+  font:
+    0.68rem "DM Sans",
+    sans-serif;
+}
+
+.product-catalog__filter[aria-pressed="true"] {
+  border-color: #28231f;
+  background: #28231f;
+  color: #fffaf4;
+}
+
 @media (min-width: 640px) {
   .product-catalog__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
