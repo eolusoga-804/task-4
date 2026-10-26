@@ -1,13 +1,19 @@
-// This file centralizes the storefront copy for use by its sections.
+// This file centralizes storefront copy and catalog settings.
 export const storeContent = {
   brand: "Emmanuel#804 Online Store",
   announcement: "A little joy for your everyday essentials!",
+
+  api: {
+    productsUrl: "https://fakestoreapi.com/products",
+  },
+
   header: {
     homeLabel: "Home",
     catalogLabel: "Shop all",
     cartLabel: "Your bag",
     cartCountLabel: "Items in bag",
   },
+
   hero: {
     eyebrow: "GOOD FINDS, GOOD FEELING",
     title: "Everyday things, with a little extra.",
@@ -16,6 +22,31 @@ export const storeContent = {
     actionLabel: "Explore the collection",
     note: "A considered edit of customer-loved finds",
   },
+
+  catalog: {
+    title: "The good finds",
+    description: "Browse the latest pieces in our collection.",
+    loadingMessage: "Finding your next favorite…",
+    errorMessage: "We couldn't load the collection. Please try again.",
+    emptyMessage: "No products match those choices.",
+    searchLabel: "Search products",
+    searchPlaceholder: "Try a name or keyword",
+    categoryLabel: "Filter by category",
+    sortLabel: "Sort products",
+    categories: [
+      { id: "all", label: "All finds" },
+      { id: "electronics", label: "Electronics" },
+      { id: "jewelery", label: "Jewelry" },
+      { id: "clothing", label: "Clothing" },
+    ],
+    sortOptions: [
+      { id: "featured", label: "Featured" },
+      { id: "price-ascending", label: "Price: low to high" },
+      { id: "price-descending", label: "Price: high to low" },
+      { id: "rating", label: "Top rated" },
+    ],
+  },
+
   footer: {
     copyright: "Made for curious collectors.",
   },
