@@ -37,6 +37,10 @@ function cartReducer(items, action) {
     );
   }
 
+  if (action.type === "clear") {
+    return [];
+  }
+
   return items;
 }
 
@@ -95,6 +99,10 @@ export default function useCart() {
     dispatch({ type: "update-quantity", productId, quantity });
   }
 
+  function clearCart() {
+    dispatch({ type: "clear" });
+  }
+
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
   return {
@@ -104,5 +112,6 @@ export default function useCart() {
     addToCart,
     removeFromCart,
     updateQuantity,
+    clearCart,
   };
 }
