@@ -74,4 +74,17 @@ export const storeContent = {
     totalLabel: "Total",
     freeLabel: "Free",
   },
+
+  checkout: {
+    title: "Complete your order",
+    description: "Demo checkout only. No payment details are collected.",
+    nameLabel: "Name",
+    emailLabel: "Email address",
+    submitLabel: "Place demo order",
+    confirmationTitle: "Your order is confirmed!",
+    confirmationMessage: "Thanks for shopping with us. Your order number is:",
+    orderNumberLabel: "Order number",
+    continueLabel: "Continue shopping",
+    closeLabel: "Close checkout",
+  },
 };
