@@ -45,6 +45,11 @@ export const storeContent = {
       { id: "price-descending", label: "Price: high to low" },
       { id: "rating", label: "Top rated" },
     ],
+    currencyLocale: "en-US",
+    currencyCode: "USD",
+    ratingLabel: "Rating",
+    favoriteBadge: "Customer favorite",
+    addToBagLabel: "Add to bag",
   },
 
   footer: {
