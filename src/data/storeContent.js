@@ -61,5 +61,9 @@ export const storeContent = {
     taxRate: 0.08,
     shippingThreshold: 75,
     shippingFee: 6.99,
+    title: "Your bag",
+    closeLabel: "Close cart",
+    emptyMessage: "Your bag is waiting for a good find.",
+    itemsPresentMessage: "Your bag has {{count}} items.",
   },
 };

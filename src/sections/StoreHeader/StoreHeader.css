@@ -76,6 +76,33 @@
     monospace;
 }
 
+/* This block styles the interactive cart trigger in the header. */
+.store-header__cart-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 8px;
+  border: 1px solid #25221f;
+  background: transparent;
+  color: #25221f;
+  cursor: pointer;
+  font:
+    600 0.78rem "DM Sans",
+    sans-serif;
+}
+
+.store-header__cart-trigger span {
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  background: #f36b35;
+  color: #fff;
+  font:
+    0.68rem "DM Mono",
+    monospace;
+}
+
 @media (max-width: 430px) {
   .store-header__inner {
     width: calc(100% - 20px);

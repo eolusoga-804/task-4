@@ -1,8 +1,8 @@
-// This section displays the brand, navigation, and current cart count.
+// This section displays the brand, navigation, and cart drawer trigger.
 import { storeContent } from "../../data/storeContent";
 import "./StoreHeader.css";
 
-export default function StoreHeader({ itemCount }) {
+export default function StoreHeader({ itemCount, onCartOpen }) {
   return (
     <header className="store-header">
       <div className="store-header__inner">
@@ -24,13 +24,17 @@ export default function StoreHeader({ itemCount }) {
           <a className="store-header__link" href="#catalog">
             {storeContent.header.catalogLabel}
           </a>
-          <span
-            className="store-header__cart-count"
+          <button
+            className="store-header__cart-trigger"
+            type="button"
+            onClick={onCartOpen}
+            aria-controls="cart-drawer"
+            aria-expanded="false"
             aria-label={`${storeContent.header.cartLabel}: ${itemCount} ${storeContent.header.cartCountLabel}`}
           >
             {storeContent.header.cartLabel}
             <span aria-hidden="true">{itemCount}</span>
-          </span>
+          </button>
         </nav>
       </div>
     </header>

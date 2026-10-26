@@ -1,0 +1,89 @@
+/* This block blurs the page and positions the content-sized cart panel. */
+.cart-drawer__backdrop {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgb(40 35 31 / 24%);
+  backdrop-filter: blur(4px);
+}
+
+.cart-drawer {
+  width: min(400px, 100%);
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 18px;
+  border: 1px solid #e9e2d9;
+  background: #fffdf9;
+  box-shadow: 0 12px 40px rgb(40 35 31 / 16%);
+  animation: cart-drawer-enter 180ms ease-out;
+}
+
+.cart-drawer__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e9e2d9;
+}
+
+.cart-drawer__title {
+  margin: 0;
+  color: #28231f;
+  font:
+    500 1.5rem "Playfair Display",
+    serif;
+}
+
+.cart-drawer__close {
+  width: 34px;
+  height: 34px;
+  border: 1px solid #d9d0c5;
+  background: transparent;
+  color: #28231f;
+  cursor: pointer;
+  font:
+    1.3rem "DM Sans",
+    sans-serif;
+}
+
+.cart-drawer__message {
+  margin: 16px 0 4px;
+  color: #635c53;
+  font:
+    0.84rem/1.5 "DM Sans",
+    sans-serif;
+}
+
+@keyframes cart-drawer-enter {
+  from {
+    opacity: 0;
+    transform: translateX(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media (max-width: 430px) {
+  .cart-drawer__backdrop {
+    padding: 8px;
+  }
+
+  .cart-drawer {
+    max-height: calc(100dvh - 16px);
+    padding: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart-drawer {
+    animation: none;
+  }
+}
