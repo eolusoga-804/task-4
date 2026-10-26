@@ -1,0 +1,14 @@
+/* This block styles the compact announcement strip. */
+.announcement-bar {
+  padding: 8px 16px;
+  background: #f36b35;
+  color: #fffaf4;
+  text-align: center;
+}
+
+.announcement-bar__text {
+  margin: 0;
+  font-family: "DM Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+}
