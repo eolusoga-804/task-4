@@ -1,4 +1,4 @@
-// This section loads products, filters by category, and displays the results.
+// This section loads, searches, filters, and displays the catalog products.
 import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { storeContent } from "../../data/storeContent";
@@ -8,17 +8,22 @@ import "./ProductCatalog.css";
 export default function ProductCatalog() {
   const { products, status, error } = useProducts();
   const [activeCategory, setActiveCategory] = useState("all");
+  const [searchTerm, setSearchTerm] = useState("");
 
   const filteredProducts = products.filter((product) => {
-    if (activeCategory === "all") {
-      return true;
-    }
+    const matchesCategory =
+      activeCategory === "all" ||
+      (activeCategory === "clothing" &&
+        product.category.includes("clothing")) ||
+      product.category === activeCategory;
 
-    if (activeCategory === "clothing") {
-      return product.category.includes("clothing");
-    }
+    const searchableText =
+      `${product.title} ${product.description} ${product.category}`.toLowerCase();
+    const matchesSearch = searchableText.includes(
+      searchTerm.trim().toLowerCase(),
+    );
 
-    return product.category === activeCategory;
+    return matchesCategory && matchesSearch;
   });
 
   return (
@@ -37,6 +42,19 @@ export default function ProductCatalog() {
           </h2>
         </div>
       </div>
+
+      <label className="product-catalog__search">
+        <span className="product-catalog__search-label">
+          {storeContent.catalog.searchLabel}
+        </span>
+        <input
+          className="product-catalog__search-input"
+          type="search"
+          value={searchTerm}
+          placeholder={storeContent.catalog.searchPlaceholder}
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </label>
 
       <div
         className="product-catalog__filters"
