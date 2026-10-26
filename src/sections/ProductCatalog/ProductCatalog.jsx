@@ -5,7 +5,7 @@ import { storeContent } from "../../data/storeContent";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import "./ProductCatalog.css";
 
-export default function ProductCatalog() {
+export default function ProductCatalog({ onAddToCart }) {
   const { products, status, error } = useProducts();
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
@@ -127,7 +127,11 @@ export default function ProductCatalog() {
       {status === "success" && sortedProducts.length > 0 && (
         <div className="product-catalog__grid">
           {sortedProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={onAddToCart}
+            />
           ))}
         </div>
       )}

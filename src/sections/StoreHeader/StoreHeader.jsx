@@ -1,8 +1,8 @@
-// This section displays the store brand and primary navigation.
+// This section displays the brand, navigation, and current cart count.
 import { storeContent } from "../../data/storeContent";
 import "./StoreHeader.css";
 
-export default function StoreHeader() {
+export default function StoreHeader({ itemCount }) {
   return (
     <header className="store-header">
       <div className="store-header__inner">
@@ -24,6 +24,13 @@ export default function StoreHeader() {
           <a className="store-header__link" href="#catalog">
             {storeContent.header.catalogLabel}
           </a>
+          <span
+            className="store-header__cart-count"
+            aria-label={`${storeContent.header.cartLabel}: ${itemCount} ${storeContent.header.cartCountLabel}`}
+          >
+            {storeContent.header.cartLabel}
+            <span aria-hidden="true">{itemCount}</span>
+          </span>
         </nav>
       </div>
     </header>

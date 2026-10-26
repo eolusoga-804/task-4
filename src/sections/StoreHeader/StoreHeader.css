@@ -53,6 +53,29 @@
     sans-serif;
 }
 
+/* This block styles the current cart count in the header. */
+.store-header__cart-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #25221f;
+  font:
+    600 0.78rem "DM Sans",
+    sans-serif;
+}
+
+.store-header__cart-count span {
+  display: grid;
+  min-width: 20px;
+  height: 20px;
+  place-items: center;
+  background: #f36b35;
+  color: #fff;
+  font:
+    0.68rem "DM Mono",
+    monospace;
+}
+
 @media (max-width: 430px) {
   .store-header__inner {
     width: calc(100% - 20px);
