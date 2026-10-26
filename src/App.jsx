@@ -1,7 +1,8 @@
-// This component arranges the announcement, header, and hero sections.
+// This component arranges the storefront sections in page order.
 import AnnouncementBar from "./sections/AnnouncementBar/AnnouncementBar";
 import StoreHeader from "./sections/StoreHeader/StoreHeader";
 import Hero from "./sections/Hero/Hero";
+import StoreFooter from "./sections/StoreFooter/StoreFooter";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
       <main>
         <Hero />
       </main>
+      <StoreFooter />
     </>
   );
 }

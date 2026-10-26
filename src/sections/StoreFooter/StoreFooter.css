@@ -1,0 +1,29 @@
+/* This block styles the compact footer within the page container. */
+.store-footer {
+  width: min(100% - 32px, 1140px);
+  margin: 0 auto;
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #e9e2d9;
+  color: #756d63;
+  font-size: 0.7rem;
+}
+
+.store-footer__brand {
+  color: #28231f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.store-footer__note {
+  font-family: "DM Sans", sans-serif;
+}
+
+@media (max-width: 430px) {
+  .store-footer {
+    width: calc(100% - 20px);
+    flex-direction: column;
+  }
+}
