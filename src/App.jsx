@@ -44,6 +44,7 @@ export default function App() {
 
       <StoreHeader
         itemCount={itemCount}
+        isCartOpen={isCartOpen}
         onCartOpen={() => setIsCartOpen(true)}
       />
 

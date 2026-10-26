@@ -2,7 +2,7 @@
 import { storeContent } from "../../data/storeContent";
 import "./StoreHeader.css";
 
-export default function StoreHeader({ itemCount, onCartOpen }) {
+export default function StoreHeader({ itemCount, onCartOpen, isCartOpen }) {
   return (
     <header className="store-header">
       <div className="store-header__inner">
@@ -29,7 +29,7 @@ export default function StoreHeader({ itemCount, onCartOpen }) {
             type="button"
             onClick={onCartOpen}
             aria-controls="cart-drawer"
-            aria-expanded="false"
+            aria-expanded={isCartOpen}
             aria-label={`${storeContent.header.cartLabel}: ${itemCount} ${storeContent.header.cartCountLabel}`}
           >
             {storeContent.header.cartLabel}
