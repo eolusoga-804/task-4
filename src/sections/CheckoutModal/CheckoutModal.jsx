@@ -5,6 +5,7 @@ import "./CheckoutModal.css";
 
 export default function CheckoutModal({ isOpen, onClose, onOrderComplete }) {
   const firstFieldRef = useRef(null);
+  const continueButtonRef = useRef(null);
   const [orderNumber, setOrderNumber] = useState("");
 
   useEffect(() => {
@@ -38,7 +39,6 @@ export default function CheckoutModal({ isOpen, onClose, onOrderComplete }) {
       }
     }
 
-    firstFieldRef.current?.focus();
     document.addEventListener("keydown", handleKeyDown);
 
     // This cleanup removes the listener and restores focus to the opener.
@@ -46,7 +46,20 @@ export default function CheckoutModal({ isOpen, onClose, onOrderComplete }) {
       document.removeEventListener("keydown", handleKeyDown);
       previousFocus?.focus?.();
     };
-  }, [isOpen, onClose, orderNumber]);
+  }, [isOpen, onClose]);
+
+  // This effect focuses the active form or confirmation action.
+  useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    if (orderNumber) {
+      continueButtonRef.current?.focus();
+    } else {
+      firstFieldRef.current?.focus();
+    }
+  }, [isOpen, orderNumber]);
 
   if (!isOpen) {
     return null;
@@ -88,6 +101,7 @@ export default function CheckoutModal({ isOpen, onClose, onOrderComplete }) {
             <h2 className="checkout-modal__title" id="checkout-modal-title">
               {storeContent.checkout.title}
             </h2>
+
             <p className="checkout-modal__description">
               {storeContent.checkout.description}
             </p>
@@ -124,15 +138,20 @@ export default function CheckoutModal({ isOpen, onClose, onOrderComplete }) {
             <p className="checkout-modal__eyebrow">
               {storeContent.checkout.orderNumberLabel}
             </p>
+
             <h2 className="checkout-modal__title" id="checkout-modal-title">
               {storeContent.checkout.confirmationTitle}
             </h2>
+
             <p className="checkout-modal__description">
               {storeContent.checkout.confirmationMessage}
             </p>
+
             <p className="checkout-modal__order-number">{orderNumber}</p>
+
             <button
               className="checkout-modal__submit"
+              ref={continueButtonRef}
               type="button"
               onClick={onOrderComplete}
             >

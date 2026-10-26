@@ -1,4 +1,4 @@
-// This section displays cart items, quantity actions, and the calculated totals.
+// This section displays cart items, quantity controls, and order totals.
 import { useEffect, useRef } from "react";
 import { storeContent } from "../../data/storeContent";
 import "./CartDrawer.css";
@@ -10,6 +10,7 @@ export default function CartDrawer({
   onClose,
   onRemove,
   onUpdateQuantity,
+  onCheckout,
 }) {
   const closeButtonRef = useRef(null);
 
@@ -47,7 +48,7 @@ export default function CartDrawer({
     closeButtonRef.current?.focus();
     document.addEventListener("keydown", handleKeyDown);
 
-    // This cleanup removes the listener and returns focus to the opener.
+    // This cleanup removes the listener and restores focus to the opener.
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
       previousFocus?.focus?.();
@@ -84,6 +85,7 @@ export default function CartDrawer({
           <h2 className="cart-drawer__title" id="cart-drawer-title">
             {storeContent.cart.title}
           </h2>
+
           <button
             className="cart-drawer__close"
             ref={closeButtonRef}
@@ -136,7 +138,9 @@ export default function CartDrawer({
                         >
                           −
                         </button>
+
                         <span aria-live="polite">{item.quantity}</span>
+
                         <button
                           className="cart-drawer__quantity-button"
                           type="button"
@@ -170,6 +174,7 @@ export default function CartDrawer({
                 <dt>{storeContent.cart.subtotalLabel}</dt>
                 <dd>{formatPrice(totals.subtotal)}</dd>
               </div>
+
               <div className="cart-drawer__total-row">
                 <dt>{storeContent.cart.shippingLabel}</dt>
                 <dd>
@@ -178,15 +183,25 @@ export default function CartDrawer({
                     : formatPrice(totals.shipping)}
                 </dd>
               </div>
+
               <div className="cart-drawer__total-row">
                 <dt>{storeContent.cart.taxLabel}</dt>
                 <dd>{formatPrice(totals.tax)}</dd>
               </div>
+
               <div className="cart-drawer__total-row cart-drawer__total-row--grand">
                 <dt>{storeContent.cart.totalLabel}</dt>
                 <dd>{formatPrice(totals.total)}</dd>
               </div>
             </dl>
+
+            <button
+              className="cart-drawer__checkout"
+              type="button"
+              onClick={onCheckout}
+            >
+              {storeContent.cart.checkoutLabel}
+            </button>
           </>
         )}
       </aside>

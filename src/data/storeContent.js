@@ -73,6 +73,7 @@ export const storeContent = {
     taxLabel: "Estimated tax",
     totalLabel: "Total",
     freeLabel: "Free",
+    checkoutLabel: "Continue to checkout",
   },
 
   checkout: {

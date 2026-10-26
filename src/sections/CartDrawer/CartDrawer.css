@@ -189,6 +189,26 @@
   font-weight: 700;
 }
 
+/* This block styles the primary action at the end of the order summary. */
+.cart-drawer__checkout {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border: 1px solid #28231f;
+  background: #28231f;
+  color: #fffaf4;
+  cursor: pointer;
+  font:
+    600 0.78rem "DM Sans",
+    sans-serif;
+}
+
+.cart-drawer__checkout:hover {
+  border-color: #f36b35;
+  background: #f36b35;
+}
+
 @keyframes cart-drawer-enter {
   from {
     opacity: 0;
