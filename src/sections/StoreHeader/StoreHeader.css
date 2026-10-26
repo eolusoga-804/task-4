@@ -1,0 +1,74 @@
+/* This block styles the centered header and its navigation. */
+.store-header {
+  border-bottom: 1px solid #e9e2d9;
+  background: #fffdf9;
+}
+
+.store-header__inner {
+  width: min(100% - 32px, 1140px);
+  min-height: 64px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.store-header__brand,
+.store-header__link {
+  color: #25221f;
+  text-decoration: none;
+}
+
+.store-header__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.store-header__mark {
+  display: grid;
+  width: 27px;
+  aspect-ratio: 1;
+  place-items: center;
+  background: #25221f;
+  color: #fffaf4;
+  font-family: "Playfair Display", serif;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.store-header__nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 3vw, 32px);
+}
+
+.store-header__link {
+  font:
+    600 0.78rem "DM Sans",
+    sans-serif;
+}
+
+@media (max-width: 430px) {
+  .store-header__inner {
+    width: calc(100% - 20px);
+    gap: 8px;
+  }
+
+  .store-header__brand {
+    max-width: 60%;
+    font-size: 0.7rem;
+  }
+
+  .store-header__nav {
+    gap: 10px;
+  }
+
+  .store-header__link {
+    font-size: 0.68rem;
+  }
+}
