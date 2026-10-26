@@ -1,4 +1,4 @@
-// This component shares cart state and controls the cart drawer.
+// This component shares cart state across the header, catalog, and drawer.
 import { useCallback, useState } from "react";
 import AnnouncementBar from "./sections/AnnouncementBar/AnnouncementBar";
 import StoreHeader from "./sections/StoreHeader/StoreHeader";
@@ -9,27 +9,41 @@ import CartDrawer from "./sections/CartDrawer/CartDrawer";
 import useCart from "./hooks/useCart";
 
 export default function App() {
-  const { items, itemCount, addToCart } = useCart();
+  const {
+    items,
+    itemCount,
+    totals,
+    addToCart,
+    removeFromCart,
+    updateQuantity,
+  } = useCart();
+
   const [isCartOpen, setIsCartOpen] = useState(false);
   const closeCart = useCallback(() => setIsCartOpen(false), []);
 
   return (
     <>
       <AnnouncementBar />
+
       <StoreHeader
         itemCount={itemCount}
         onCartOpen={() => setIsCartOpen(true)}
       />
+
       <main>
         <Hero />
         <ProductCatalog onAddToCart={addToCart} />
       </main>
+
       <StoreFooter />
+
       <CartDrawer
         isOpen={isCartOpen}
-        itemCount={itemCount}
         items={items}
+        totals={totals}
         onClose={closeCart}
+        onRemove={removeFromCart}
+        onUpdateQuantity={updateQuantity}
       />
     </>
   );

@@ -65,5 +65,13 @@ export const storeContent = {
     closeLabel: "Close cart",
     emptyMessage: "Your bag is waiting for a good find.",
     itemsPresentMessage: "Your bag has {{count}} items.",
+    removeLabel: "Remove",
+    decreaseQuantityLabel: "Decrease quantity for {{title}}",
+    increaseQuantityLabel: "Increase quantity for {{title}}",
+    subtotalLabel: "Subtotal",
+    shippingLabel: "Shipping",
+    taxLabel: "Estimated tax",
+    totalLabel: "Total",
+    freeLabel: "Free",
   },
 };
