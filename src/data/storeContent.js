@@ -56,6 +56,7 @@ export const storeContent = {
       "Picking out the good ones…",
       "Almost ready…",
     ],
+    retryLabel: "Try again",
   },
 
   footer: {

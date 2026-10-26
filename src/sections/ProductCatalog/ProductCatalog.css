@@ -137,6 +137,24 @@
   outline-offset: 2px;
 }
 
+/* This block styles the catalog's retry action. */
+.product-catalog__error {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+}
+
+.product-catalog__retry {
+  padding: 8px 12px;
+  border: 1px solid #28231f;
+  background: #28231f;
+  color: #fffaf4;
+  cursor: pointer;
+  font:
+    600 0.72rem "DM Sans",
+    sans-serif;
+}
+
 @media (max-width: 430px) {
   .product-catalog__tools {
     align-items: stretch;

@@ -1,4 +1,4 @@
-// This hook loads products and tracks the request state.
+// This hook loads products and provides a retry action for failed requests.
 import { useEffect, useState } from "react";
 import { storeContent } from "../data/storeContent";
 
@@ -6,6 +6,7 @@ export default function useProducts() {
   const [products, setProducts] = useState([]);
   const [status, setStatus] = useState("loading");
   const [error, setError] = useState("");
+  const [requestNumber, setRequestNumber] = useState(0);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -44,9 +45,14 @@ export default function useProducts() {
 
     loadProducts();
 
-    // This cleanup cancels the request when the consumer unmounts.
+    // This cleanup cancels the request when it is no longer needed.
     return () => controller.abort();
-  }, []);
+  }, [requestNumber]);
 
-  return { products, status, error };
+  // This function starts another request after an error.
+  function retry() {
+    setRequestNumber((currentNumber) => currentNumber + 1);
+  }
+
+  return { products, status, error, retry };
 }

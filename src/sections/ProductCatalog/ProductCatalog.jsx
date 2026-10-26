@@ -7,7 +7,7 @@ import ProductLoading from "../../components/ProductLoading/ProductLoading";
 import "./ProductCatalog.css";
 
 export default function ProductCatalog({ onAddToCart }) {
-  const { products, status, error } = useProducts();
+  const { products, status, error, retry } = useProducts();
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchTerm, setSearchTerm] = useState("");
   const [sortOrder, setSortOrder] = useState("featured");
@@ -110,9 +110,16 @@ export default function ProductCatalog({ onAddToCart }) {
       {status === "loading" && <ProductLoading />}
 
       {status === "error" && (
-        <p className="product-catalog__message" role="alert">
-          {error}
-        </p>
+        <div className="product-catalog__error" role="alert">
+          <p className="product-catalog__message">{error}</p>
+          <button
+            className="product-catalog__retry"
+            type="button"
+            onClick={retry}
+          >
+            {storeContent.catalog.retryLabel}
+          </button>
+        </div>
       )}
 
       {status === "success" && sortedProducts.length === 0 && (
