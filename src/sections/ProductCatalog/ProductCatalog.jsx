@@ -3,6 +3,7 @@ import { useState } from "react";
 import useProducts from "../../hooks/useProducts";
 import { storeContent } from "../../data/storeContent";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import ProductLoading from "../../components/ProductLoading/ProductLoading";
 import "./ProductCatalog.css";
 
 export default function ProductCatalog({ onAddToCart }) {
@@ -106,11 +107,7 @@ export default function ProductCatalog({ onAddToCart }) {
         ))}
       </div>
 
-      {status === "loading" && (
-        <p className="product-catalog__message" role="status">
-          {storeContent.catalog.loadingMessage}
-        </p>
-      )}
+      {status === "loading" && <ProductLoading />}
 
       {status === "error" && (
         <p className="product-catalog__message" role="alert">
