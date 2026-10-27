@@ -96,3 +96,25 @@
   background: #f36b35;
   border-color: #f36b35;
 }
+
+/* This block gives the product action a clear keyboard focus indicator. */
+.product-card__action:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds hover feedback to product actions on medium and wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .product-card__action {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .product-card__action:hover {
+    border-color: #f36b35;
+    background: #f36b35;
+    transform: translateY(-2px);
+  }
+}

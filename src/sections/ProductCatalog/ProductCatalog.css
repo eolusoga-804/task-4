@@ -159,6 +159,39 @@
     sans-serif;
 }
 
+/* This block makes category filters and retry actions visibly keyboard-focused. */
+.product-catalog__filter:focus-visible,
+.product-catalog__retry:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds hover feedback on medium and wider screens with a mouse. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .product-catalog__filter,
+  .product-catalog__retry {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .product-catalog__filter:hover,
+  .product-catalog__retry:hover {
+    border-color: #f36b35;
+    background: #f36b35;
+    color: #fffaf4;
+    transform: translateY(-2px);
+  }
+
+  .product-catalog__filter[aria-pressed="true"]:hover {
+    border-color: #28231f;
+    background: #28231f;
+    color: #fffaf4;
+  }
+}
+
 @media (max-width: 430px) {
   .product-catalog__tools {
     align-items: stretch;
