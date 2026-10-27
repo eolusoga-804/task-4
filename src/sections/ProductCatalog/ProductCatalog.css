@@ -73,10 +73,12 @@
   color: #fffaf4;
 }
 
-/* This block styles the labeled search field. */
+/* This block keeps the search label at least as wide as its input. */
 .product-catalog__search {
   display: grid;
   gap: 5px;
+  width: 100%;
+  min-width: 300px;
   max-width: 420px;
 }
 
@@ -88,8 +90,10 @@
   text-transform: uppercase;
 }
 
+/* This block gives the search field a 300px minimum width. */
 .product-catalog__search-input {
   width: 100%;
+  min-width: 300px;
   min-height: 38px;
   padding: 8px 10px;
   border: 1px solid #d9d0c5;
