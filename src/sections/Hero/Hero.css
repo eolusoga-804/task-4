@@ -148,6 +148,53 @@
   box-shadow: 0 0 0 6px rgb(243 107 53 / 16%);
 }
 
+/* This block colors and italicizes the emphasized hero phrase. */
+.hero__title-accent {
+  color: #b64c27;
+  font-style: italic;
+}
+
+/* This block adds a large faint halo behind the hero content. */
+.hero__shape--halo {
+  right: 31%;
+  bottom: -76px;
+  width: 210px;
+  aspect-ratio: 1;
+  border: 1px solid rgb(243 107 53 / 18%);
+  border-radius: 50%;
+}
+
+/* This block adds a small outlined diamond as a geometric accent. */
+.hero__shape--diamond {
+  top: 22%;
+  left: 46%;
+  width: 18px;
+  aspect-ratio: 1;
+  border: 1px solid rgb(40 35 31 / 30%);
+  transform: rotate(45deg);
+}
+
+/* This block creates a quiet dotted background pattern. */
+.hero__shape--dots {
+  bottom: 18%;
+  left: 42%;
+  width: 54px;
+  height: 42px;
+  background-image: radial-gradient(#756d63 1px, transparent 1px);
+  background-size: 9px 9px;
+  opacity: 0.36;
+}
+
+/* This block adds a small ring detail near the lower right. */
+.hero__shape--ring {
+  right: 24%;
+  bottom: 16%;
+  width: 26px;
+  aspect-ratio: 1;
+  border: 1px solid rgb(182 76 39 / 45%);
+  border-radius: 50%;
+}
+
 /* This block animates the link and arrow on hover-capable wider screens. */
 @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
   .hero__action {

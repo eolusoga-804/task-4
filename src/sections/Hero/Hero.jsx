@@ -10,11 +10,20 @@ export default function Hero() {
         ✳
       </span>
       <span className="hero__shape hero__shape--orbit" aria-hidden="true" />
+      {/* These extra background shapes add depth to the hero artwork. */}
+      <span className="hero__shape hero__shape--halo" aria-hidden="true" />
+      <span className="hero__shape hero__shape--diamond" aria-hidden="true" />
+      <span className="hero__shape hero__shape--dots" aria-hidden="true" />
+      <span className="hero__shape hero__shape--ring" aria-hidden="true" />
 
       <div className="hero__content">
         <p className="hero__eyebrow">{storeContent.hero.eyebrow}</p>
+        {/* This heading highlights the closing phrase with the accent style. */}
         <h1 className="hero__title" id="hero-title">
-          {storeContent.hero.title}
+          {storeContent.hero.titleLead}
+          <span className="hero__title-accent">
+            {storeContent.hero.titleAccent}
+          </span>
         </h1>
         <p className="hero__description">{storeContent.hero.description}</p>
         <a className="hero__action" href="#catalog">

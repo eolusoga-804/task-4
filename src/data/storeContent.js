@@ -15,7 +15,9 @@ export const storeContent = {
 
   hero: {
     eyebrow: "GOOD FINDS, GOOD FEELING",
-    title: "Everyday things, with a little extra.",
+    // These title parts let the hero emphasize its final phrase.
+    titleLead: "Everyday things, with ",
+    titleAccent: "a little extra.",
     description:
       "Thoughtful picks across the pieces you wear, use, and keep close.",
     actionLabel: "Explore the collection",
