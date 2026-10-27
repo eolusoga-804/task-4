@@ -166,6 +166,15 @@
   outline-offset: 3px;
 }
 
+/* This block styles the live product count above the results. */
+.product-catalog__count {
+  margin: 0 0 10px;
+  color: #756d63;
+  font:
+    0.68rem "DM Mono",
+    monospace;
+}
+
 /* This block adds hover feedback on medium and wider screens with a mouse. */
 @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
   .product-catalog__filter,

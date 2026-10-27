@@ -107,6 +107,16 @@ export default function ProductCatalog({ onAddToCart }) {
         ))}
       </div>
 
+      {/* This live count updates when search or category filters change. */}
+      {status === "success" && (
+        <p className="product-catalog__count" aria-live="polite">
+          {storeContent.catalog.resultsCountLabel.replace(
+            "{{count}}",
+            sortedProducts.length,
+          )}
+        </p>
+      )}
+
       {status === "loading" && <ProductLoading />}
 
       {status === "error" && (
