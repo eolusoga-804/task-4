@@ -1,0 +1,122 @@
+/* This block positions and animates the temporary product confirmation. */
+.product-added-toast {
+  position: fixed;
+  right: max(12px, calc((100vw - 1140px) / 2));
+  bottom: 16px;
+  z-index: 40;
+  width: min(440px, calc(100vw - 24px));
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #e9e2d9;
+  background: #fffdf9;
+  box-shadow: 0 12px 36px rgb(40 35 31 / 16%);
+  animation: product-added-toast__zoom 3600ms ease both;
+}
+
+/* This block sizes the product image without cropping it. */
+.product-added-toast__image {
+  width: 72px;
+  height: 72px;
+  padding: 6px;
+  background: #f7f3ed;
+  object-fit: contain;
+}
+
+/* This block keeps the product details compact and readable. */
+.product-added-toast__details {
+  min-width: 0;
+}
+
+/* This block styles the confirmation message. */
+.product-added-toast__message {
+  margin: 0 0 3px;
+  color: #b64c27;
+  font:
+    0.62rem "DM Mono",
+    monospace;
+  text-transform: uppercase;
+}
+
+/* This block limits the product name to two lines. */
+.product-added-toast__title {
+  margin: 0;
+  color: #28231f;
+  font:
+    600 0.85rem/1.25 "DM Sans",
+    sans-serif;
+}
+
+/* This block limits the description to keep the popup compact. */
+.product-added-toast__description {
+  margin: 4px 0;
+  display: -webkit-box;
+  overflow: hidden;
+  color: #756d63;
+  font:
+    0.7rem/1.35 "DM Sans",
+    sans-serif;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+/* This block places the price and rating on one line. */
+.product-added-toast__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  color: #28231f;
+  font:
+    600 0.7rem "DM Sans",
+    sans-serif;
+}
+
+/* This block gives the rating label a quieter visual weight. */
+.product-added-toast__rating-label {
+  color: #756d63;
+  font:
+    0.62rem "DM Mono",
+    monospace;
+}
+
+/* This block styles the square popup dismiss button. */
+.product-added-toast__close {
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid #d9d0c5;
+  background: transparent;
+  color: #28231f;
+  cursor: pointer;
+  font:
+    1.1rem/1 "DM Sans",
+    sans-serif;
+}
+
+/* This animation zooms the confirmation in, holds it, then zooms it away. */
+@keyframes product-added-toast__zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0.84);
+  }
+
+  10%,
+  82% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+}
+
+/* This block respects visitors who prefer reduced motion. */
+@media (prefers-reduced-motion: reduce) {
+  .product-added-toast {
+    animation: none;
+  }
+}

@@ -96,4 +96,12 @@ export const storeContent = {
     continueLabel: "Continue shopping",
     closeLabel: "Close checkout",
   },
+
+  // This block centralizes the added-product popup text and duration.
+  productAdded: {
+    message: "Added to your cart",
+    ratingLabel: "Rating",
+    closeLabel: "Dismiss product confirmation",
+    durationMs: 3600,
+  },
 };
