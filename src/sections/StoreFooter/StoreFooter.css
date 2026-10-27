@@ -45,52 +45,18 @@
   pointer-events: none;
 }
 
-/* This block enlarges the footer glow orbs and speeds up their motion. */
-.store-footer__orb {
-  position: absolute;
-  width: min(368px, 78vw);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  filter: blur(10px);
-  opacity: 0.38;
-  animation: store-footer__orb-float 2.67s ease-in-out infinite alternate;
-}
-
-/* This block places the orange glow near the left edge. */
-.store-footer__orb--orange {
-  top: 16px;
-  left: 8%;
-  background: #f36b35;
-}
-
-/* This block scales the violet orb to eight times its original size. */
-.store-footer__orb--violet {
-  top: 30px;
-  left: 48%;
-  width: min(288px, 60vw);
-  background: #8874bd;
-  animation-delay: -2s;
-}
-
-/* This block scales the teal orb to eight times its original size. */
-.store-footer__orb--teal {
-  top: 10px;
-  right: 12%;
-  width: min(320px, 68vw);
-  background: #68a99e;
-  animation-delay: -4s;
-}
-
 /* This block enlarges and animates the footer orbit shape. */
 .store-footer__orbit {
   position: absolute;
   top: 9px;
   right: 28%;
-  width: 162px;
   aspect-ratio: 1;
   border: 3px dashed rgb(40 35 31 / 66%);
   border-radius: 50%;
   animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 81px;
+  border-width: 1.5px;
+  border-color: rgb(40 35 31 / 46%);
 }
 
 /* This block enlarges and animates the rotated geometric accent. */
@@ -98,12 +64,13 @@
   position: absolute;
   top: 26px;
   left: 30%;
-  width: 36px;
   aspect-ratio: 1;
   border: 3px solid #b64c27;
-  opacity: 0.9;
   transform: rotate(45deg);
   animation: store-footer__diamond-wobble 2.67s ease-in-out infinite alternate;
+  width: 18px;
+  border-width: 1.5px;
+  opacity: 0.63;
 }
 
 /* This block triples the dotted pattern's size and visibility. */
@@ -111,12 +78,12 @@
   position: absolute;
   right: 5%;
   bottom: 8px;
-  width: 144px;
-  height: 72px;
-  background-image: radial-gradient(#756d63 3px, transparent 3px);
-  background-size: 24px 24px;
-  opacity: 0.84;
   animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 72px;
+  height: 36px;
+  background-image: radial-gradient(#756d63 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  opacity: 0.588;
 }
 
 /* This block adds an animated orange cross accent. */
@@ -124,10 +91,10 @@
   position: absolute;
   top: 20px;
   left: 65%;
-  width: 30px;
-  height: 30px;
-  opacity: 0.75;
   animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 15px;
+  height: 15px;
+  opacity: 0.525;
 }
 
 .store-footer__plus-sign::before,
@@ -135,11 +102,11 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 28px;
-  height: 3px;
   background: #b64c27;
   content: "";
   transform: translate(-50%, -50%);
+  width: 14px;
+  height: 1.5px;
 }
 
 .store-footer__plus-sign::after {
@@ -151,12 +118,12 @@
   position: absolute;
   top: 12px;
   right: 40%;
-  width: 42px;
-  height: 38px;
   background: #8874bd;
   clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-  opacity: 0.7;
   animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 21px;
+  height: 19px;
+  opacity: 0.49;
 }
 
 /* This block adds a violet outlined ring. */
@@ -164,11 +131,13 @@
   position: absolute;
   bottom: 12px;
   left: 20%;
-  width: 42px;
   aspect-ratio: 1;
   border: 4px solid rgb(136 116 189 / 70%);
   border-radius: 50%;
   animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 21px;
+  border-width: 2px;
+  border-color: rgb(136 116 189 / 49%);
 }
 
 /* This block adds a teal striped bar as a graphic detail. */
@@ -176,15 +145,15 @@
   position: absolute;
   right: 22%;
   bottom: 18px;
-  width: 72px;
-  height: 18px;
+  animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  width: 36px;
+  height: 9px;
   background: repeating-linear-gradient(
     135deg,
-    #68a99e 0 4px,
-    transparent 4px 9px
+    #68a99e 0 2px,
+    transparent 2px 4.5px
   );
-  opacity: 0.72;
-  animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+  opacity: 0.504;
 }
 
 /* This animation gently moves the orbit and dot pattern. */
@@ -209,20 +178,8 @@
   }
 }
 
-/* This animation gently moves each footer glow orb. */
-@keyframes store-footer__orb-float {
-  from {
-    transform: translateY(-3px) scale(0.92);
-  }
-
-  to {
-    transform: translateY(5px) scale(1.08);
-  }
-}
-
 /* This block disables all decorative footer motion for reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
-  .store-footer__orb,
   .store-footer__orbit,
   .store-footer__diamond,
   .store-footer__dots,
@@ -314,12 +271,5 @@
 
   .store-footer__watermark {
     font-size: clamp(0.9rem, 5vw, 1.35rem);
-  }
-}
-
-/* This block increases orb visibility on medium and wider screens. */
-@media (min-width: 640px) {
-  .store-footer__orb {
-    opacity: 0.95;
   }
 }

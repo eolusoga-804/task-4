@@ -8,9 +8,6 @@ export default function StoreFooter() {
     <footer className="store-footer">
       {/* This decorative layer spans the full footer background. */}
       <div className="store-footer__artwork" aria-hidden="true">
-        <span className="store-footer__orb store-footer__orb--orange" />
-        <span className="store-footer__orb store-footer__orb--violet" />
-        <span className="store-footer__orb store-footer__orb--teal" />
         <span className="store-footer__orbit" />
         <span className="store-footer__diamond" />
         <span className="store-footer__dots" />
