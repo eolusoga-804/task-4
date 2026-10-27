@@ -11,6 +11,8 @@
   font:
     0.7rem "DM Sans",
     sans-serif;
+  /* This block adds breathing room at the bottom edge of the full-width footer. */
+  padding-bottom: 24px;
 }
 
 /* This block constrains readable footer content and the watermark to 1140px. */
@@ -20,7 +22,8 @@
   width: min(100% - 32px, 1140px);
   min-height: 72px;
   margin-inline: auto;
-  padding-bottom: 30px;
+  /* This block reserves space for the enlarged watermark inside the content width. */
+  padding-bottom: 110px;
 }
 
 /* This block aligns the brand and footer copy across the available width. */
@@ -273,6 +276,11 @@
   text-align: center;
   white-space: nowrap;
   pointer-events: none;
+  /* This block makes the watermark more visible and three times taller. */
+  color: rgb(40 35 31 / 28%);
+  padding-top: 8px;
+  transform: scaleY(3);
+  transform-origin: center bottom;
 }
 
 /* This block stacks footer content while keeping the message right-aligned. */
