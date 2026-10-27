@@ -6,9 +6,31 @@
   text-align: center;
 }
 
+/* This animation gently zooms the announcement text into view. */
 .announcement-bar__text {
   margin: 0;
   font-family: "DM Mono", monospace;
   font-size: 0.7rem;
   letter-spacing: 0.04em;
+  animation: announcement-bar__zoom 1520ms ease-out both;
+}
+
+/* This block defines the announcement's zoom-in motion. */
+@keyframes announcement-bar__zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* This block respects reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .announcement-bar__text {
+    animation: none;
+  }
 }
