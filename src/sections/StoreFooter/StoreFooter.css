@@ -78,38 +78,64 @@
   animation-delay: -4s;
 }
 
-/* This block adds a thin circular orbit shape. */
+/* This block enlarges and animates the footer orbit shape. */
 .store-footer__orbit {
   position: absolute;
   top: 9px;
   right: 28%;
-  width: 54px;
+  width: 162px;
   aspect-ratio: 1;
-  border: 1px dashed rgb(40 35 31 / 22%);
+  border: 3px dashed rgb(40 35 31 / 66%);
   border-radius: 50%;
+  animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
 }
 
-/* This block adds a small rotated geometric accent. */
+/* This block enlarges and animates the rotated geometric accent. */
 .store-footer__diamond {
   position: absolute;
   top: 26px;
   left: 30%;
-  width: 12px;
+  width: 36px;
   aspect-ratio: 1;
-  border: 1px solid rgb(182 76 39 / 46%);
+  border: 3px solid #b64c27;
+  opacity: 0.9;
   transform: rotate(45deg);
+  animation: store-footer__diamond-wobble 2.67s ease-in-out infinite alternate;
 }
 
-/* This block adds a quiet dotted pattern as a footer artifact. */
+/* This block triples the dotted pattern's size and visibility. */
 .store-footer__dots {
   position: absolute;
   right: 5%;
   bottom: 8px;
-  width: 48px;
-  height: 24px;
-  background-image: radial-gradient(#756d63 1px, transparent 1px);
-  background-size: 8px 8px;
-  opacity: 0.28;
+  width: 144px;
+  height: 72px;
+  background-image: radial-gradient(#756d63 3px, transparent 3px);
+  background-size: 24px 24px;
+  opacity: 0.84;
+  animation: store-footer__artifact-drift 2.67s ease-in-out infinite alternate;
+}
+
+/* This animation gently moves the orbit and dot pattern. */
+@keyframes store-footer__artifact-drift {
+  from {
+    transform: translateY(-3px);
+  }
+
+  to {
+    transform: translateY(5px);
+  }
+}
+
+/* This animation gently rocks the footer diamond. */
+@keyframes store-footer__diamond-wobble {
+  from {
+    transform: rotate(40deg) translateY(-3px);
+  }
+
+  to {
+    transform: rotate(50deg) translateY(5px);
+  }
 }
 
 /* This animation gently moves each footer glow orb. */
@@ -123,9 +149,12 @@
   }
 }
 
-/* This block respects reduced-motion preferences. */
+/* This block disables footer animations for reduced-motion preferences. */
 @media (prefers-reduced-motion: reduce) {
-  .store-footer__orb {
+  .store-footer__orb,
+  .store-footer__orbit,
+  .store-footer__diamond,
+  .store-footer__dots {
     animation: none;
   }
 }
