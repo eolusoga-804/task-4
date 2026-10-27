@@ -59,8 +59,8 @@ export const storeContent = {
       "Almost ready…",
     ],
     retryLabel: "Try again",
-    // This label reports how many products currently match the catalog controls.
-    resultsCountLabel: "{{count}} products",
+    // This label follows the live number of matching products.
+    resultsCountLabel: "products",
   },
 
   // This block centralizes footer copy and its background watermark.

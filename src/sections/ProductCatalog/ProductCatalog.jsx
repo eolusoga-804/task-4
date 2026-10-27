@@ -110,10 +110,10 @@ export default function ProductCatalog({ onAddToCart }) {
       {/* This live count updates when search or category filters change. */}
       {status === "success" && (
         <p className="product-catalog__count" aria-live="polite">
-          {storeContent.catalog.resultsCountLabel.replace(
-            "{{count}}",
-            sortedProducts.length,
-          )}
+          <strong className="product-catalog__count-number">
+            {sortedProducts.length}
+          </strong>
+          <span>{storeContent.catalog.resultsCountLabel}</span>
         </p>
       )}
 

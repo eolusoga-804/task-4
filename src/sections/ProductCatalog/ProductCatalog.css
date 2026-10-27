@@ -166,13 +166,24 @@
   outline-offset: 3px;
 }
 
-/* This block styles the live product count above the results. */
+/* This block aligns the matching product count and its label. */
 .product-catalog__count {
   margin: 0 0 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
   color: #756d63;
   font:
     0.68rem "DM Mono",
     monospace;
+}
+
+/* This block doubles the count number's size and gives it bold emphasis. */
+.product-catalog__count-number {
+  color: #28231f;
+  font:
+    700 1.36rem/1 "DM Sans",
+    sans-serif;
 }
 
 /* This block adds hover feedback on medium and wider screens with a mouse. */
