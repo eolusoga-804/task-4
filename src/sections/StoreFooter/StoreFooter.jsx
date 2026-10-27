@@ -14,6 +14,11 @@ export default function StoreFooter() {
         <span className="store-footer__orbit" />
         <span className="store-footer__diamond" />
         <span className="store-footer__dots" />
+        {/* These extra shapes expand the footer's decorative artwork. */}
+        <span className="store-footer__plus-sign" />
+        <span className="store-footer__hexagon" />
+        <span className="store-footer__ring-accent" />
+        <span className="store-footer__stripe" />
       </div>
 
       {/* This inner container keeps footer copy within the 1140px page width. */}
