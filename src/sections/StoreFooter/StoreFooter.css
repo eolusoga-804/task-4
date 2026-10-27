@@ -42,15 +42,15 @@
   pointer-events: none;
 }
 
-/* This block styles the soft, animated colored glow orbs. */
+/* This block enlarges the footer glow orbs and speeds up their motion. */
 .store-footer__orb {
   position: absolute;
-  width: 46px;
+  width: min(368px, 78vw);
   aspect-ratio: 1;
   border-radius: 50%;
   filter: blur(10px);
   opacity: 0.38;
-  animation: store-footer__orb-float 8s ease-in-out infinite alternate;
+  animation: store-footer__orb-float 2.67s ease-in-out infinite alternate;
 }
 
 /* This block places the orange glow near the left edge. */
@@ -60,20 +60,20 @@
   background: #f36b35;
 }
 
-/* This block places the violet glow near the center. */
+/* This block scales the violet orb to eight times its original size. */
 .store-footer__orb--violet {
   top: 30px;
   left: 48%;
-  width: 36px;
+  width: min(288px, 60vw);
   background: #8874bd;
   animation-delay: -2s;
 }
 
-/* This block places the teal glow toward the right edge. */
+/* This block scales the teal orb to eight times its original size. */
 .store-footer__orb--teal {
   top: 10px;
   right: 12%;
-  width: 40px;
+  width: min(320px, 68vw);
   background: #68a99e;
   animation-delay: -4s;
 }
@@ -195,5 +195,12 @@
 
   .store-footer__watermark {
     font-size: clamp(0.9rem, 5vw, 1.35rem);
+  }
+}
+
+/* This block increases orb visibility on medium and wider screens. */
+@media (min-width: 640px) {
+  .store-footer__orb {
+    opacity: 0.95;
   }
 }
