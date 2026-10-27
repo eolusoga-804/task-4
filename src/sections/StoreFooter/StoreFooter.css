@@ -281,6 +281,16 @@
   padding-top: 8px;
   transform: scaleY(3);
   transform-origin: center bottom;
+  /* This block stretches the watermark across the full 1140px content area. */
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-word;
+  letter-spacing: clamp(0.08em, 0.6vw, 0.28em);
+  word-spacing: clamp(0.1em, 1.6vw, 1.2em);
 }
 
 /* This block stacks footer content while keeping the message right-aligned. */
