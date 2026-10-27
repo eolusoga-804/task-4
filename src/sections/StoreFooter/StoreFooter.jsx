@@ -17,6 +17,16 @@ export default function StoreFooter() {
         </div>
       </div>
 
+      {/* This decorative layer adds glow orbs and geometric footer details. */}
+      <div className="store-footer__artwork" aria-hidden="true">
+        <span className="store-footer__orb store-footer__orb--orange" />
+        <span className="store-footer__orb store-footer__orb--violet" />
+        <span className="store-footer__orb store-footer__orb--teal" />
+        <span className="store-footer__orbit" />
+        <span className="store-footer__diamond" />
+        <span className="store-footer__dots" />
+      </div>
+
       {/* This decorative watermark sits below the readable footer content. */}
       <p className="store-footer__watermark" aria-hidden="true">
         {storeContent.footer.watermark}

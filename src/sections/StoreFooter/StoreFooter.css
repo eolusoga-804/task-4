@@ -10,16 +10,115 @@
   font:
     0.7rem "DM Sans",
     sans-serif;
+  /* This subtle fill separates the footer from the catalog above it. */
+  background: #faf7f1;
 }
 
 /* This block aligns the brand and footer copy across the available width. */
 .store-footer__content {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   display: flex;
   align-items: flex-start;
   justify-content: flex-end;
   gap: 16px;
+}
+
+/* This block positions decorative footer shapes behind the readable content. */
+.store-footer__artwork {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* This block styles the soft, animated colored glow orbs. */
+.store-footer__orb {
+  position: absolute;
+  width: 46px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  filter: blur(10px);
+  opacity: 0.38;
+  animation: store-footer__orb-float 8s ease-in-out infinite alternate;
+}
+
+/* This block places the orange glow near the left edge. */
+.store-footer__orb--orange {
+  top: 16px;
+  left: 8%;
+  background: #f36b35;
+}
+
+/* This block places the violet glow near the center. */
+.store-footer__orb--violet {
+  top: 30px;
+  left: 48%;
+  width: 36px;
+  background: #8874bd;
+  animation-delay: -2s;
+}
+
+/* This block places the teal glow toward the right edge. */
+.store-footer__orb--teal {
+  top: 10px;
+  right: 12%;
+  width: 40px;
+  background: #68a99e;
+  animation-delay: -4s;
+}
+
+/* This block adds a thin circular orbit shape. */
+.store-footer__orbit {
+  position: absolute;
+  top: 9px;
+  right: 28%;
+  width: 54px;
+  aspect-ratio: 1;
+  border: 1px dashed rgb(40 35 31 / 22%);
+  border-radius: 50%;
+}
+
+/* This block adds a small rotated geometric accent. */
+.store-footer__diamond {
+  position: absolute;
+  top: 26px;
+  left: 30%;
+  width: 12px;
+  aspect-ratio: 1;
+  border: 1px solid rgb(182 76 39 / 46%);
+  transform: rotate(45deg);
+}
+
+/* This block adds a quiet dotted pattern as a footer artifact. */
+.store-footer__dots {
+  position: absolute;
+  right: 5%;
+  bottom: 8px;
+  width: 48px;
+  height: 24px;
+  background-image: radial-gradient(#756d63 1px, transparent 1px);
+  background-size: 8px 8px;
+  opacity: 0.28;
+}
+
+/* This animation gently moves each footer glow orb. */
+@keyframes store-footer__orb-float {
+  from {
+    transform: translateY(-3px) scale(0.92);
+  }
+
+  to {
+    transform: translateY(5px) scale(1.08);
+  }
+}
+
+/* This block respects reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .store-footer__orb {
+    animation: none;
+  }
 }
 
 /* This block right-aligns and wraps the footer credit and message. */
