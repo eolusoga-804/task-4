@@ -95,6 +95,28 @@
     sans-serif;
 }
 
+/* This block marks the popup dismiss button when it receives keyboard focus. */
+.product-added-toast__close:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds hover feedback to the popup dismiss button on wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .product-added-toast__close {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease;
+  }
+
+  .product-added-toast__close:hover {
+    border-color: #b64c27;
+    background: #b64c27;
+    color: #fffaf4;
+  }
+}
+
 /* This animation zooms the confirmation in, holds it, then zooms it away. */
 @keyframes product-added-toast__zoom {
   0% {

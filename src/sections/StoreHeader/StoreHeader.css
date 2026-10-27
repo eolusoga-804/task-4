@@ -78,6 +78,28 @@
     monospace;
 }
 
+/* This block shows keyboard focus on the header cart button. */
+.store-header__cart-trigger:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds cart-button hover feedback on medium and wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .store-header__cart-trigger {
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .store-header__cart-trigger:hover {
+    background: #28231f;
+    color: #fffaf4;
+    transform: translateY(-2px);
+  }
+}
+
 /* This block keeps the header compact on narrow screens. */
 @media (max-width: 430px) {
   .store-header__inner {

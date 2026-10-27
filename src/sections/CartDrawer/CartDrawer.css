@@ -209,6 +209,43 @@
   background: #f36b35;
 }
 
+/* This block gives cart controls a clear keyboard focus indicator. */
+.cart-drawer__close:focus-visible,
+.cart-drawer__quantity-button:focus-visible,
+.cart-drawer__remove:focus-visible,
+.cart-drawer__checkout:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds hover feedback to cart controls on medium and wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .cart-drawer__close,
+  .cart-drawer__quantity-button,
+  .cart-drawer__remove,
+  .cart-drawer__checkout {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .cart-drawer__close:hover,
+  .cart-drawer__quantity-button:not(:disabled):hover {
+    background: #f7f3ed;
+    color: #b64c27;
+  }
+
+  .cart-drawer__remove:hover {
+    color: #b64c27;
+  }
+
+  .cart-drawer__checkout:hover {
+    transform: translateY(-2px);
+  }
+}
+
 @keyframes cart-drawer-enter {
   from {
     opacity: 0;

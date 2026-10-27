@@ -113,6 +113,34 @@
     monospace;
 }
 
+/* This block gives checkout buttons a visible keyboard focus indicator. */
+.checkout-modal__close:focus-visible,
+.checkout-modal__submit:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 3px;
+}
+
+/* This block adds hover feedback to checkout controls on wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .checkout-modal__close,
+  .checkout-modal__submit {
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .checkout-modal__close:hover {
+    background: #f7f3ed;
+    color: #b64c27;
+  }
+
+  .checkout-modal__submit:hover {
+    transform: translateY(-2px);
+  }
+}
+
 @keyframes checkout-modal-enter {
   from {
     opacity: 0;
