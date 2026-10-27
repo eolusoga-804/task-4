@@ -1,0 +1,59 @@
+/* This block gives the editorial note a compact, contained layout. */
+.closing-note {
+  position: relative;
+  width: min(100% - 32px, 1140px);
+  margin: 0 auto 18px;
+  padding: 14px 16px;
+  border-left: 3px solid #f36b35;
+  background: #f7f3ed;
+}
+
+/* This block styles the short uppercase section label. */
+.closing-note__eyebrow {
+  margin: 0 0 6px;
+  color: #b64c27;
+  font:
+    0.62rem "DM Mono",
+    monospace;
+  letter-spacing: 0.07em;
+}
+
+/* This block aligns the title and supporting copy on wider screens. */
+.closing-note__content {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* This block styles the editorial heading. */
+.closing-note__title {
+  margin: 0;
+  color: #28231f;
+  font:
+    500 clamp(1rem, 2vw, 1.3rem)/1.2 "Playfair Display",
+    serif;
+}
+
+/* This block keeps the supporting note compact and readable. */
+.closing-note__description {
+  max-width: 430px;
+  margin: 0;
+  color: #635c53;
+  font:
+    0.76rem/1.45 "DM Sans",
+    sans-serif;
+}
+
+/* This block stacks the editorial copy on narrow screens. */
+@media (max-width: 560px) {
+  .closing-note {
+    width: calc(100% - 20px);
+  }
+
+  .closing-note__content {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

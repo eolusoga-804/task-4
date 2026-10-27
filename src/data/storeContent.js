@@ -112,4 +112,12 @@ export const storeContent = {
     closeLabel: "Dismiss product confirmation",
     durationMs: 3600,
   },
+
+  // This block centralizes the short message displayed before the footer.
+  closingNote: {
+    eyebrow: "A NOTE FROM THE STORE",
+    title: "Good finds for everyday life.",
+    description:
+      "Thoughtful picks, familiar favorites, and small details worth keeping close.",
+  },
 };

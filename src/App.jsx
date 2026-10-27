@@ -8,6 +8,8 @@ import ProductCatalog from "./sections/ProductCatalog/ProductCatalog";
 import StoreFooter from "./sections/StoreFooter/StoreFooter";
 import CartDrawer from "./sections/CartDrawer/CartDrawer";
 import CheckoutModal from "./sections/CheckoutModal/CheckoutModal";
+// This import provides the compact editorial section before the footer.
+import ClosingNote from "./sections/ClosingNote/ClosingNote";
 import ProductAddedToast from "./components/ProductAddedToast/ProductAddedToast";
 import useCart from "./hooks/useCart";
 
@@ -87,6 +89,9 @@ export default function App() {
         <Hero />
         <ProductCatalog onAddToCart={handleAddToCart} />
       </main>
+
+      {/* This section adds a brief editorial pause before the footer. */}
+      <ClosingNote />
 
       {/* This footer displays the store identity and footer message. */}
       <StoreFooter />
