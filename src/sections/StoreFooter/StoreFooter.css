@@ -18,26 +18,8 @@
   z-index: 1;
   display: flex;
   align-items: flex-start;
-  justify-content: space-between;
+  justify-content: flex-end;
   gap: 16px;
-}
-
-/* This block aligns the cart icon with the footer brand. */
-.store-footer__brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  min-width: 0;
-  color: #28231f;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-/* This block sizes the decorative footer cart icon. */
-.store-footer__icon {
-  width: 19px;
-  height: 19px;
-  flex: 0 0 auto;
 }
 
 /* This block right-aligns and wraps the footer credit and message. */
