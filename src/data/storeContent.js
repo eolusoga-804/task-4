@@ -59,8 +59,12 @@ export const storeContent = {
     retryLabel: "Try again",
   },
 
+  // This block centralizes footer copy and its background watermark.
   footer: {
+    creatorLabel: "Created, constructed, built, developed by",
+    creatorName: "Emmanuel#804",
     copyright: "Made for curious collectors.",
+    watermark: "EMMANUEL#804 ONLINE STORE",
   },
 
   // This block centralizes the cart drawer's customer-facing copy.

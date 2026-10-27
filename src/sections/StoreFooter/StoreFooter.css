@@ -1,29 +1,106 @@
-/* This block styles the compact footer within the page container. */
+/* This block creates the compact footer container and watermark space. */
 .store-footer {
+  position: relative;
   width: min(100% - 32px, 1140px);
   margin: 0 auto;
-  padding: 14px 0;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
+  padding: 14px 0 40px;
+  overflow: hidden;
   border-top: 1px solid #e9e2d9;
   color: #756d63;
-  font-size: 0.7rem;
+  font:
+    0.7rem "DM Sans",
+    sans-serif;
 }
 
+/* This block aligns the brand and footer copy across the available width. */
+.store-footer__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* This block aligns the cart icon with the footer brand. */
 .store-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
   color: #28231f;
   font-weight: 700;
   text-decoration: none;
 }
 
-.store-footer__note {
-  font-family: "DM Sans", sans-serif;
+/* This block sizes the decorative footer cart icon. */
+.store-footer__icon {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
 }
 
-@media (max-width: 430px) {
+/* This block right-aligns and wraps the footer credit and message. */
+.store-footer__message {
+  max-width: 300px;
+  margin-left: auto;
+  text-align: right;
+}
+
+/* This block styles the creator credit line. */
+.store-footer__creator {
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* This block gives the creator name a stronger weight. */
+.store-footer__creator span {
+  color: #28231f;
+  font-weight: 700;
+}
+
+/* This block styles the short footer message below the credit. */
+.store-footer__note {
+  margin: 3px 0 0;
+  color: #756d63;
+}
+
+/* This block adds a quiet, oversized brand watermark below the content. */
+.store-footer__watermark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  color: rgb(40 35 31 / 7%);
+  font:
+    700 clamp(1rem, 4vw, 2.4rem)/1 "DM Sans",
+    sans-serif;
+  letter-spacing: 0.08em;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* This block stacks footer content while keeping the message right-aligned. */
+@media (max-width: 520px) {
   .store-footer {
     width: calc(100% - 20px);
+  }
+
+  .store-footer__content {
     flex-direction: column;
+    gap: 10px;
+  }
+
+  .store-footer__message {
+    width: 100%;
+    max-width: 300px;
+    margin-left: auto;
+  }
+
+  .store-footer__watermark {
+    font-size: clamp(0.9rem, 5vw, 1.35rem);
   }
 }
