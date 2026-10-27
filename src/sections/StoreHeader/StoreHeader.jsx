@@ -13,9 +13,7 @@ export default function StoreHeader({ itemCount, onCartOpen, isCartOpen }) {
           href="/"
           aria-label={storeContent.brand}
         >
-          <span className="store-header__mark" aria-hidden="true">
-            e
-          </span>
+          {/* This text link displays the store name without a brand icon. */}
           <span>{storeContent.brand}</span>
         </a>
 

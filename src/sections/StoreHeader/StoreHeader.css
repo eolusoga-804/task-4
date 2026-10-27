@@ -22,25 +22,11 @@
 .store-header__brand {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
   color: #25221f;
   font-family: "DM Sans", sans-serif;
   font-size: 0.83rem;
   font-weight: 700;
   text-decoration: none;
-}
-
-/* This block styles the compact brand mark. */
-.store-header__mark {
-  display: grid;
-  width: 27px;
-  aspect-ratio: 1;
-  place-items: center;
-  background: #25221f;
-  color: #fffaf4;
-  font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  font-style: italic;
 }
 
 /* This block styles the cart button and its contents. */
