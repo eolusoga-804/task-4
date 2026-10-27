@@ -121,11 +121,11 @@
   }
 }
 
-/* This block right-aligns and wraps the footer credit and message. */
+/* This block centers and wraps the creator credit and footer message. */
 .store-footer__message {
   max-width: 300px;
-  margin-left: auto;
-  text-align: right;
+  margin-inline: auto;
+  text-align: center;
 }
 
 /* This block styles the creator credit line. */
@@ -176,10 +176,11 @@
     gap: 10px;
   }
 
+  /* This block keeps the message centered within the narrow footer. */
   .store-footer__message {
     width: 100%;
     max-width: 300px;
-    margin-left: auto;
+    margin-inline: auto;
   }
 
   .store-footer__watermark {
