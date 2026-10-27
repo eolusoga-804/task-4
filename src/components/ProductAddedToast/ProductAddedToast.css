@@ -1,11 +1,5 @@
 /* This block positions and animates the temporary product confirmation. */
 .product-added-toast {
-  position: fixed;
-  right: max(12px, calc((100vw - 1140px) / 2));
-  bottom: 16px;
-  /* This block keeps the popup below the active cart overlay. */
-  z-index: 18;
-  width: min(440px, calc(100vw - 24px));
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr) auto;
   align-items: start;
@@ -15,6 +9,9 @@
   background: #fffdf9;
   box-shadow: 0 12px 36px rgb(40 35 31 / 16%);
   animation: product-added-toast__zoom 3600ms ease both;
+  position: relative;
+  width: min(440px, 100%);
+  pointer-events: auto;
 }
 
 /* This block sizes the product image without cropping it. */
@@ -100,6 +97,17 @@
 .product-added-toast__close:focus-visible {
   outline: 2px solid #b64c27;
   outline-offset: 3px;
+}
+
+/* This block centers the popup in the viewport and allows its button to work. */
+.product-added-toast__layer {
+  position: fixed;
+  z-index: 18;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 12px;
+  pointer-events: none;
 }
 
 /* This block adds hover feedback to the popup dismiss button on wider screens. */
