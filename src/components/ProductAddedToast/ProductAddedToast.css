@@ -3,7 +3,8 @@
   position: fixed;
   right: max(12px, calc((100vw - 1140px) / 2));
   bottom: 16px;
-  z-index: 40;
+  /* This block keeps the popup below the active cart overlay. */
+  z-index: 18;
   width: min(440px, calc(100vw - 24px));
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr) auto;

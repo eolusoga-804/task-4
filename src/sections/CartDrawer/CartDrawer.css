@@ -1,8 +1,8 @@
-/* This block blurs the page and positions the content-sized cart panel. */
+/* This block overlays and blurs the page area beneath the sticky header. */
 .cart-drawer__backdrop {
   position: fixed;
-  z-index: 10;
-  inset: 0;
+  z-index: 19;
+  inset: 64px 0 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -13,7 +13,8 @@
 
 .cart-drawer {
   width: min(400px, 100%);
-  max-height: calc(100dvh - 32px);
+  /* This limit keeps the panel inside the space below the header. */
+  max-height: calc(100dvh - 96px);
   overflow-y: auto;
   padding: 18px;
   border: 1px solid #e9e2d9;
@@ -258,13 +259,14 @@
   }
 }
 
+/* This block preserves the below-header cart layout on narrow screens. */
 @media (max-width: 430px) {
   .cart-drawer__backdrop {
     padding: 8px;
   }
 
   .cart-drawer {
-    max-height: calc(100dvh - 16px);
+    max-height: calc(100dvh - 80px);
     padding: 14px;
   }
 }
