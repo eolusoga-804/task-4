@@ -16,6 +16,10 @@ export default function StoreFooter() {
         <span className="store-footer__hexagon" />
         <span className="store-footer__ring-accent" />
         <span className="store-footer__stripe" />
+        {/* These shapes add three more scattered footer details. */}
+        <span className="store-footer__triangle" />
+        <span className="store-footer__star" />
+        <span className="store-footer__arc" />
       </div>
 
       {/* This inner container keeps footer copy within the 1140px page width. */}
