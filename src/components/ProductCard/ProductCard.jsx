@@ -52,12 +52,13 @@ export default function ProductCard({ product, onAddToCart }) {
         </div>
 
         {onAddToCart && (
+          // This button adds the displayed product to the cart.
           <button
             className="product-card__action"
             type="button"
             onClick={() => onAddToCart(product)}
           >
-            {storeContent.catalog.addToBagLabel}
+            {storeContent.catalog.addToCartLabel}
           </button>
         )}
       </div>

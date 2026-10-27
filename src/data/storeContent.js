@@ -7,11 +7,10 @@ export const storeContent = {
     productsUrl: "https://fakestoreapi.com/products",
   },
 
+  // This block keeps header and cart wording in the central store configuration.
   header: {
-    homeLabel: "Home",
-    catalogLabel: "Shop all",
-    cartLabel: "Your bag",
-    cartCountLabel: "Items in bag",
+    cartLabel: "Your cart",
+    cartCountLabel: "Items in cart",
   },
 
   hero: {
@@ -49,7 +48,8 @@ export const storeContent = {
     currencyCode: "USD",
     ratingLabel: "Rating",
     favoriteBadge: "Customer favorite",
-    addToBagLabel: "Add to bag",
+    // This label appears on each product card's add button.
+    addToCartLabel: "Add to cart",
     loadingLabel: "Loading the collection",
     loadingMessages: [
       "Checking the shelves…",
@@ -63,15 +63,16 @@ export const storeContent = {
     copyright: "Made for curious collectors.",
   },
 
+  // This block centralizes the cart drawer's customer-facing copy.
   cart: {
     storageKey: "emmanuel804-cart",
     taxRate: 0.08,
     shippingThreshold: 75,
     shippingFee: 6.99,
-    title: "Your bag",
+    title: "Your cart",
     closeLabel: "Close cart",
-    emptyMessage: "Your bag is waiting for a good find.",
-    itemsPresentMessage: "Your bag has {{count}} items.",
+    emptyMessage: "Your cart is waiting for a good find.",
+    itemsPresentMessage: "Your cart has {{count}} items.",
     removeLabel: "Remove",
     decreaseQuantityLabel: "Decrease quantity for {{title}}",
     increaseQuantityLabel: "Increase quantity for {{title}}",

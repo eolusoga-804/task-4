@@ -1,9 +1,13 @@
-/* This block styles the centered header and its navigation. */
+/* This block keeps the header visible at the top while scrolling. */
 .store-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   border-bottom: 1px solid #e9e2d9;
   background: #fffdf9;
 }
 
+/* This block aligns header content within the storefront's 1140px width. */
 .store-header__inner {
   width: min(100% - 32px, 1140px);
   min-height: 64px;
@@ -14,21 +18,19 @@
   gap: 16px;
 }
 
-.store-header__brand,
-.store-header__link {
-  color: #25221f;
-  text-decoration: none;
-}
-
+/* This block styles the store identity link. */
 .store-header__brand {
   display: inline-flex;
   align-items: center;
   gap: 9px;
+  color: #25221f;
   font-family: "DM Sans", sans-serif;
   font-size: 0.83rem;
   font-weight: 700;
+  text-decoration: none;
 }
 
+/* This block styles the compact brand mark. */
 .store-header__mark {
   display: grid;
   width: 27px;
@@ -41,46 +43,11 @@
   font-style: italic;
 }
 
-.store-header__nav {
-  display: flex;
-  align-items: center;
-  gap: clamp(12px, 3vw, 32px);
-}
-
-.store-header__link {
-  font:
-    600 0.78rem "DM Sans",
-    sans-serif;
-}
-
-/* This block styles the current cart count in the header. */
-.store-header__cart-count {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  color: #25221f;
-  font:
-    600 0.78rem "DM Sans",
-    sans-serif;
-}
-
-.store-header__cart-count span {
-  display: grid;
-  min-width: 20px;
-  height: 20px;
-  place-items: center;
-  background: #f36b35;
-  color: #fff;
-  font:
-    0.68rem "DM Mono",
-    monospace;
-}
-
-/* This block styles the interactive cart trigger in the header. */
+/* This block styles the cart button and its contents. */
 .store-header__cart-trigger {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
   padding: 6px 8px;
   border: 1px solid #25221f;
   background: transparent;
@@ -91,10 +58,18 @@
     sans-serif;
 }
 
-.store-header__cart-trigger span {
+/* This block sizes the cart outline icon. */
+.store-header__cart-icon {
+  width: 19px;
+  height: 19px;
+}
+
+/* This block highlights the item count in the orange accent. */
+.store-header__cart-count {
   display: grid;
   min-width: 20px;
   height: 20px;
+  padding-inline: 3px;
   place-items: center;
   background: #f36b35;
   color: #fff;
@@ -103,6 +78,7 @@
     monospace;
 }
 
+/* This block keeps the header compact on narrow screens. */
 @media (max-width: 430px) {
   .store-header__inner {
     width: calc(100% - 20px);
@@ -110,15 +86,18 @@
   }
 
   .store-header__brand {
-    max-width: 60%;
+    max-width: 68%;
     font-size: 0.7rem;
   }
 
-  .store-header__nav {
-    gap: 10px;
+  .store-header__cart-trigger {
+    gap: 5px;
+    padding: 5px;
+    font-size: 0.68rem;
   }
 
-  .store-header__link {
-    font-size: 0.68rem;
+  .store-header__cart-icon {
+    width: 17px;
+    height: 17px;
   }
 }
