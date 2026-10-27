@@ -1,17 +1,26 @@
-/* This block creates the compact footer container and watermark space. */
+/* This block makes the footer background span the viewport width. */
 .store-footer {
   position: relative;
-  width: min(100% - 32px, 1140px);
-  margin: 0 auto;
-  padding: 14px 0 40px;
+  width: 100%;
+  margin: 0;
+  padding: 14px 0 10px;
   overflow: hidden;
   border-top: 1px solid #e9e2d9;
+  background: #faf7f1;
   color: #756d63;
   font:
     0.7rem "DM Sans",
     sans-serif;
-  /* This subtle fill separates the footer from the catalog above it. */
-  background: #faf7f1;
+}
+
+/* This block constrains readable footer content and the watermark to 1140px. */
+.store-footer__inner {
+  position: relative;
+  z-index: 2;
+  width: min(100% - 32px, 1140px);
+  min-height: 72px;
+  margin-inline: auto;
+  padding-bottom: 30px;
 }
 
 /* This block aligns the brand and footer copy across the available width. */
@@ -167,7 +176,8 @@
 
 /* This block stacks footer content while keeping the message right-aligned. */
 @media (max-width: 520px) {
-  .store-footer {
+  /* This block keeps the footer content inset on narrow screens. */
+  .store-footer__inner {
     width: calc(100% - 20px);
   }
 

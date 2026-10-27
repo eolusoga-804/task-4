@@ -1,23 +1,12 @@
-// This section displays the creator credit, footer note, and brand watermark.
+// This section displays the footer message and decorative full-width artwork.
 import { storeContent } from "../../data/storeContent";
 import "./StoreFooter.css";
 
-// This component keeps footer copy in the central store configuration.
+// This component keeps readable footer content inside the shared page width.
 export default function StoreFooter() {
   return (
     <footer className="store-footer">
-      {/* This row right-aligns the creator credit and footer message. */}
-      <div className="store-footer__content">
-        <div className="store-footer__message">
-          <p className="store-footer__creator">
-            {storeContent.footer.creatorLabel}{" "}
-            <span>{storeContent.footer.creatorName}</span>
-          </p>
-          <p className="store-footer__note">{storeContent.footer.copyright}</p>
-        </div>
-      </div>
-
-      {/* This decorative layer adds glow orbs and geometric footer details. */}
+      {/* This decorative layer spans the full footer background. */}
       <div className="store-footer__artwork" aria-hidden="true">
         <span className="store-footer__orb store-footer__orb--orange" />
         <span className="store-footer__orb store-footer__orb--violet" />
@@ -27,10 +16,25 @@ export default function StoreFooter() {
         <span className="store-footer__dots" />
       </div>
 
-      {/* This decorative watermark sits below the readable footer content. */}
-      <p className="store-footer__watermark" aria-hidden="true">
-        {storeContent.footer.watermark}
-      </p>
+      {/* This inner container keeps footer copy within the 1140px page width. */}
+      <div className="store-footer__inner">
+        <div className="store-footer__content">
+          <div className="store-footer__message">
+            <p className="store-footer__creator">
+              {storeContent.footer.creatorLabel}{" "}
+              <span>{storeContent.footer.creatorName}</span>
+            </p>
+            <p className="store-footer__note">
+              {storeContent.footer.copyright}
+            </p>
+          </div>
+        </div>
+
+        {/* This decorative watermark stays within the content container. */}
+        <p className="store-footer__watermark" aria-hidden="true">
+          {storeContent.footer.watermark}
+        </p>
+      </div>
     </footer>
   );
 }
