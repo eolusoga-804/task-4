@@ -22,6 +22,9 @@ export const storeContent = {
       "Thoughtful picks across the pieces you wear, use, and keep close.",
     actionLabel: "Explore the collection",
     note: "A considered edit of customer-loved finds",
+    // These lines provide a short label for the hero artwork.
+    artLabelTop: "GOOD FINDS",
+    artLabelBottom: "FOUND DAILY",
   },
 
   catalog: {

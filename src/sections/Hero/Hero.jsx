@@ -34,10 +34,11 @@ export default function Hero() {
       </div>
 
       <div className="hero__art" aria-hidden="true">
+        {/* This label gives the hero artwork a concise store-themed message. */}
         <span className="hero__art-label">
-          OBJECTS
+          {storeContent.hero.artLabelTop}
           <br />
-          WITH CHARACTER
+          {storeContent.hero.artLabelBottom}
         </span>
         <span className="hero__art-disc" />
         <span className="hero__art-stem" />
