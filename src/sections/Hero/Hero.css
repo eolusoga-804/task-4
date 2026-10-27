@@ -141,6 +141,45 @@
   border-radius: 50%;
 }
 
+/* This block gives the hero link a clear keyboard focus treatment. */
+.hero__action:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 4px;
+  box-shadow: 0 0 0 6px rgb(243 107 53 / 16%);
+}
+
+/* This block animates the link and arrow on hover-capable wider screens. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .hero__action {
+    transition:
+      background-color 180ms ease,
+      box-shadow 180ms ease,
+      transform 180ms ease;
+  }
+
+  .hero__action span {
+    transition: transform 180ms ease;
+  }
+
+  .hero__action:hover {
+    background: #f36b35;
+    box-shadow: 5px 5px 0 rgb(40 35 31 / 16%);
+    transform: translate(-2px, -2px);
+  }
+
+  .hero__action:hover span {
+    transform: translate(3px, -3px);
+  }
+}
+
+/* This block disables the link motion for reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .hero__action,
+  .hero__action span {
+    transition: none;
+  }
+}
+
 @keyframes hero-float {
   50% {
     transform: translateY(-9px);
