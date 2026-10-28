@@ -195,15 +195,18 @@
   }
 }
 
-/* This block places the description panel directly over its product card. */
+/* This block lets the popup grow with its description while keeping a readable translucent background. */
 .product-card__description-popover {
   position: absolute;
   z-index: 6;
-  inset: 8px;
-  overflow-y: auto;
+  top: 8px;
+  right: 8px;
+  left: 8px;
+  box-sizing: border-box;
+  height: auto;
   padding: 14px;
   border: 1px solid rgb(255 250 244 / 32%);
-  background: rgb(40 35 31 / 96%);
+  background: rgb(40 35 31 / 87%);
   box-shadow: 0 12px 32px rgb(40 35 31 / 24%);
   color: #fffaf4;
   font:
@@ -216,6 +219,24 @@
     opacity 180ms ease,
     transform 180ms ease,
     visibility 180ms ease;
+}
+
+/* This block distinguishes the popup label from the description copy. */
+.product-card__description-label {
+  display: block;
+  margin-bottom: 6px;
+  color: #f5a27f;
+  font:
+    0.62rem/1.4 "DM Mono",
+    monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* This block removes default paragraph spacing while keeping the full description readable. */
+.product-card__description-copy {
+  margin: 0;
+  overflow-wrap: anywhere;
 }
 
 /* This block marks the image and title as keyboard-focusable triggers. */
