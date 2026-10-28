@@ -28,6 +28,12 @@
   font:
     500 clamp(1.5rem, 4vw, 2.2rem)/1.1 "Playfair Display",
     serif;
+  /* This clip reveals the configured heading from left to right on page load. */
+  width: max-content;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: product-catalog-title-type 1.4s steps(14, end) both;
 }
 
 .product-catalog__grid {
@@ -186,6 +192,17 @@
     sans-serif;
 }
 
+/* This animation reveals the catalog heading in typing-like steps. */
+@keyframes product-catalog-title-type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+
+  to {
+    clip-path: inset(0);
+  }
+}
+
 /* This block adds hover feedback on medium and wider screens with a mouse. */
 @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
   .product-catalog__filter,
@@ -245,5 +262,14 @@
 
   .product-catalog__grid {
     gap: 8px;
+  }
+}
+
+/* This block shows the full heading without animation when reduced motion is preferred. */
+@media (prefers-reduced-motion: reduce) {
+  .product-catalog__title {
+    width: auto;
+    clip-path: none;
+    animation: none;
   }
 }
