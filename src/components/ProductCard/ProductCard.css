@@ -103,6 +103,31 @@
   outline-offset: 3px;
 }
 
+/* This block fades and lifts each product card into view. */
+.product-card {
+  animation: product-card-enter 8480ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
+}
+
+/* This animation brings each card up from a slightly lower position. */
+@keyframes product-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(156px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* This block skips the entrance motion when reduced motion is preferred. */
+@media (prefers-reduced-motion: reduce) {
+  .product-card {
+    animation: none;
+  }
+}
+
 /* This block adds hover feedback to product actions on medium and wider screens. */
 @media (min-width: 640px) and (hover: hover) and (pointer: fine) {
   .product-card__action {

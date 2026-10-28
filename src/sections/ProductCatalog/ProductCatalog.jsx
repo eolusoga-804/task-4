@@ -140,10 +140,12 @@ export default function ProductCatalog({ onAddToCart }) {
 
       {status === "success" && sortedProducts.length > 0 && (
         <div className="product-catalog__grid">
-          {sortedProducts.map((product) => (
+          {/* This mapping gives each product card a staggered entrance delay. */}
+          {sortedProducts.map((product, index) => (
             <ProductCard
               key={product.id}
               product={product}
+              index={index}
               onAddToCart={onAddToCart}
             />
           ))}

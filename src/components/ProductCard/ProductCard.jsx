@@ -2,7 +2,8 @@
 import { storeContent } from "../../data/storeContent";
 import "./ProductCard.css";
 
-export default function ProductCard({ product, onAddToCart }) {
+// This component displays one product and its staggered entrance.
+export default function ProductCard({ product, index = 0, onAddToCart }) {
   const category = storeContent.catalog.categories.find(
     (item) =>
       item.id === product.category ||
@@ -15,7 +16,11 @@ export default function ProductCard({ product, onAddToCart }) {
   }).format(product.price);
 
   return (
-    <article className="product-card">
+    // This article enters after its preceding product cards.
+    <article
+      className="product-card"
+      style={{ animationDelay: `${index * 65}ms` }}
+    >
       <div className="product-card__image-wrap">
         <img
           className="product-card__image"
