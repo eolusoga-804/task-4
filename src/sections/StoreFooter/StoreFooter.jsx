@@ -36,9 +36,12 @@ export default function StoreFooter() {
           </div>
         </div>
 
-        {/* This decorative watermark stays within the content container. */}
+        {/* This clipped track scrolls the watermark continuously to the right. */}
         <p className="store-footer__watermark" aria-hidden="true">
-          {storeContent.footer.watermark}
+          <span className="store-footer__watermark-track">
+            <span>{storeContent.footer.watermark}</span>
+            <span>{storeContent.footer.watermark}</span>
+          </span>
         </p>
       </div>
     </footer>

@@ -291,6 +291,19 @@
   .store-footer__arc {
     animation: none;
   }
+
+  .store-footer__watermark-track {
+    animation: none;
+    transform: none;
+  }
+
+  .store-footer__watermark-track > span:first-child {
+    margin-inline: auto;
+  }
+
+  .store-footer__watermark-track > span + span {
+    display: none;
+  }
 }
 
 /* This block centers and wraps the creator credit and footer message. */
@@ -319,13 +332,15 @@
   color: #c5b7a6;
 }
 
-/* This block sizes and spaces the watermark to stay legible across the footer width. */
+/* This block clips the moving watermark within the footer content width. */
 .store-footer__watermark {
   position: absolute;
   z-index: 1;
   right: 0;
   bottom: 0;
   left: 0;
+  display: flex;
+  align-items: center;
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
@@ -333,16 +348,61 @@
   min-height: 3em;
   margin: 0;
   padding: 0.15em 0.05em 0;
+  overflow: hidden;
   color: rgb(255 250 244 / 28%);
-  font:
-    700 clamp(0.65rem, 2.8vw, 2rem)/3 "DM Mono",
-    monospace;
+  font-family: "DM Mono", monospace;
+  font-size: clamp(1.3rem, 5.6vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
   letter-spacing: clamp(0.03em, 1.5vw, 0.55em);
-  word-spacing: clamp(0.05em, 1.2vw, 1.5em);
-  text-align: justify;
-  text-align-last: justify;
   white-space: nowrap;
   pointer-events: none;
+}
+
+/* This block repeats the same text to make the rightward loop seamless. */
+.store-footer__watermark-track {
+  display: flex;
+  width: max-content;
+  animation: store-footer__watermark-scroll-right 24s linear infinite;
+}
+
+/* This block spaces the repeated watermark phrases apart. */
+.store-footer__watermark-track > span {
+  flex: 0 0 auto;
+  padding-right: 3em;
+}
+
+/* This animation moves the duplicated watermark track to the right. */
+@keyframes store-footer__watermark-scroll-right {
+  from {
+    transform: translateX(-50%);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* This block increases the watermark to three times its base size below 550px. */
+@media (max-width: 549px) {
+  .store-footer__watermark {
+    font-size: clamp(1.95rem, 8.4vw, 6rem);
+  }
+
+  .store-footer__inner {
+    padding-bottom: 160px;
+  }
+}
+
+/* This block increases it to 4.5 times its base size below 425px. */
+@media (max-width: 424px) {
+  .store-footer__watermark {
+    font-size: clamp(2.925rem, 12.6vw, 9rem);
+  }
+
+  .store-footer__inner {
+    padding-bottom: 170px;
+  }
 }
 
 /* This block stacks footer content while keeping the message right-aligned. */
