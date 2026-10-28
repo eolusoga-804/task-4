@@ -1,42 +1,65 @@
-/* This block makes the footer background span the viewport width. */
+/* This block creates the full-width footer background with compact vertical padding. */
 .store-footer {
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 14px 0 10px;
+  padding: 14px 0 18px;
   overflow: hidden;
-  font:
-    0.7rem "DM Sans",
-    sans-serif;
-  /* This block adds breathing room at the bottom edge of the full-width footer. */
-  padding-bottom: 24px;
   border-top: 1px solid rgb(255 250 244 / 18%);
   background: linear-gradient(118deg, #1c262b 0%, #28252e 52%, #30251f 100%);
   color: #e4ddd3;
+  font:
+    0.7rem "DM Sans",
+    sans-serif;
 }
 
-/* This block constrains readable footer content and the watermark to 1140px. */
+/* This block constrains footer content to the shared 1140px page width. */
 .store-footer__inner {
   position: relative;
   z-index: 2;
   width: min(100% - 32px, 1140px);
-  min-height: 72px;
   margin-inline: auto;
-  /* This block reserves space for the enlarged watermark inside the content width. */
-  padding-bottom: 110px;
 }
 
-/* This block aligns the brand and footer copy across the available width. */
+/* This block centers the footer message within the content area. */
 .store-footer__content {
   position: relative;
   z-index: 2;
   display: flex;
   align-items: flex-start;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 16px;
 }
 
-/* This block positions decorative footer shapes behind the readable content. */
+/* This block centers the message and grows its type smoothly with screen width. */
+.store-footer__message {
+  width: min(100%, 520px);
+  margin-inline: auto;
+  font-size: clamp(0.72rem, 1.15vw, 0.95rem);
+  text-align: center;
+}
+
+/* This block styles the creator credit with a readable line height. */
+.store-footer__creator {
+  margin: 0;
+  color: #e8dfd3;
+  line-height: 1.45;
+}
+
+/* This block emphasizes the creator name in the credit. */
+.store-footer__creator span {
+  color: #fffaf4;
+  font-weight: 700;
+}
+
+/* This block styles the short note beneath the creator credit. */
+.store-footer__note {
+  margin: 3px 0 0;
+  color: #c5b7a6;
+  line-height: 1.45;
+}
+
+/* This block positions the decorative shapes behind the footer content. */
 .store-footer__artwork {
   position: absolute;
   z-index: 0;
@@ -45,107 +68,104 @@
   pointer-events: none;
 }
 
-/* This block enlarges and animates the footer orbit shape. */
+/* This block styles the dashed orbit accent. */
 .store-footer__orbit {
   position: absolute;
+  top: 18px;
+  left: 7%;
+  width: 81px;
   aspect-ratio: 1;
-  border: 3px dashed rgb(40 35 31 / 66%);
+  border: 1.5px dashed rgb(255 250 244 / 46%);
   border-radius: 50%;
   animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
-  width: 81px;
-  border-width: 1.5px;
-  border-color: rgb(255 250 244 / 46%);
-  top: 18px;
-  right: auto;
-  left: 7%;
 }
 
-/* This block enlarges and animates the rotated geometric accent. */
+/* This block styles the orange rotated diamond accent. */
 .store-footer__diamond {
   position: absolute;
-  aspect-ratio: 1;
-  border: 3px solid #b64c27;
-  transform: rotate(45deg);
-  animation: store-footer__diamond-wobble 1.335s ease-in-out infinite alternate;
-  width: 18px;
-  border-width: 1.5px;
-  opacity: 0.63;
-  top: auto;
   bottom: 30px;
   left: 27%;
+  width: 18px;
+  aspect-ratio: 1;
+  border: 1.5px solid #b64c27;
+  opacity: 0.63;
+  transform: rotate(45deg);
+  animation: store-footer__diamond-wobble 1.335s ease-in-out infinite alternate;
 }
 
-/* This block triples the dotted pattern's size and visibility. */
+/* This block creates a dotted graphic detail near the footer edge. */
 .store-footer__dots {
   position: absolute;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  right: 4%;
+  bottom: 12px;
   width: 72px;
   height: 36px;
   background-image: radial-gradient(#fffaf4 1.5px, transparent 1.5px);
   background-size: 12px 12px;
   opacity: 0.588;
-  right: 4%;
-  bottom: 12px;
+  animation: store-footer__artifact-sway 1.335s ease-in-out infinite alternate;
 }
 
-/* This block adds an animated orange cross accent. */
+/* This block positions and animates the orange plus sign. */
 .store-footer__plus-sign {
   position: absolute;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  top: 28px;
+  left: 82%;
   width: 15px;
   height: 15px;
   opacity: 0.525;
-  top: 28px;
-  left: 82%;
+  animation: store-footer__artifact-diagonal 1.335s ease-in-out infinite
+    alternate;
 }
 
+/* This block draws the two crossing strokes of the plus sign. */
 .store-footer__plus-sign::before,
 .store-footer__plus-sign::after {
   position: absolute;
   top: 50%;
   left: 50%;
+  width: 14px;
+  height: 1.5px;
   background: #b64c27;
   content: "";
   transform: translate(-50%, -50%);
-  width: 14px;
-  height: 1.5px;
 }
 
+/* This block rotates the second stroke to complete the plus sign. */
 .store-footer__plus-sign::after {
   transform: translate(-50%, -50%) rotate(90deg);
 }
 
-/* This block adds a softly filled, animated hexagon. */
+/* This block creates a softly filled violet hexagon. */
 .store-footer__hexagon {
   position: absolute;
-  background: #8874bd;
-  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
-  width: 21px;
-  height: 19px;
-  opacity: 0.49;
   top: 52px;
   right: 43%;
+  width: 21px;
+  height: 19px;
+  background: #8874bd;
+  clip-path: polygon(25% 0, 75% 0, 100% 50%, 75% 100%, 25% 100%, 0 50%);
+  opacity: 0.49;
+  animation: store-footer__artifact-sway 1.335s ease-in-out infinite alternate;
 }
 
-/* This block adds a violet outlined ring. */
+/* This block creates the violet outlined ring accent. */
 .store-footer__ring-accent {
   position: absolute;
-  aspect-ratio: 1;
-  border: 4px solid rgb(136 116 189 / 70%);
-  border-radius: 50%;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
-  width: 21px;
-  border-width: 2px;
-  border-color: rgb(136 116 189 / 49%);
   bottom: 18px;
   left: 61%;
+  width: 21px;
+  aspect-ratio: 1;
+  border: 2px solid rgb(136 116 189 / 49%);
+  border-radius: 50%;
+  animation: store-footer__artifact-rise 1.335s ease-in-out infinite alternate;
 }
 
-/* This block adds a teal striped bar as a graphic detail. */
+/* This block creates a teal striped accent. */
 .store-footer__stripe {
   position: absolute;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  right: 17%;
+  bottom: 48px;
   width: 36px;
   height: 9px;
   background: repeating-linear-gradient(
@@ -154,11 +174,10 @@
     transparent 2px 4.5px
   );
   opacity: 0.504;
-  right: 17%;
-  bottom: 48px;
+  animation: store-footer__artifact-sway 1.335s ease-in-out infinite alternate;
 }
 
-/* This block adds a small orange triangle in the left footer area. */
+/* This block creates the orange triangle accent. */
 .store-footer__triangle {
   position: absolute;
   top: 58px;
@@ -168,10 +187,11 @@
   background: #b64c27;
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
   opacity: 0.5;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  animation: store-footer__artifact-diagonal 1.335s ease-in-out infinite
+    alternate;
 }
 
-/* This block adds a violet star near the right edge. */
+/* This block positions and animates the violet star accent. */
 .store-footer__star {
   position: absolute;
   top: 16px;
@@ -180,9 +200,10 @@
   height: 28px;
   color: #8874bd;
   opacity: 0.5;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  animation: store-footer__artifact-rise 1.335s ease-in-out infinite alternate;
 }
 
+/* This block draws the star glyph with the display serif font. */
 .store-footer__star::before {
   content: "✦";
   font:
@@ -190,7 +211,7 @@
     serif;
 }
 
-/* This block adds a teal arch near the center-left footer area. */
+/* This block creates the teal arch accent. */
 .store-footer__arc {
   position: absolute;
   right: 34%;
@@ -201,10 +222,11 @@
   border-bottom: 0;
   border-radius: 22px 22px 0 0;
   opacity: 0.5;
-  animation: store-footer__artifact-drift 1.335s ease-in-out infinite alternate;
+  animation: store-footer__artifact-diagonal 1.335s ease-in-out infinite
+    alternate;
 }
 
-/* This animation increases vertical travel distance of footer design artifacts. */
+/* This animation moves selected artwork vertically. */
 @keyframes store-footer__artifact-drift {
   from {
     transform: translateY(-13.5px);
@@ -215,7 +237,7 @@
   }
 }
 
-/* This animation gives the diamond a longer vertical and rotational path. */
+/* This animation wobbles the diamond while it travels vertically. */
 @keyframes store-footer__diamond-wobble {
   from {
     transform: rotate(40deg) translateY(-13.5px);
@@ -226,7 +248,7 @@
   }
 }
 
-/* This animation moves selected artifacts horizontally across their positions. */
+/* This animation moves selected artwork horizontally. */
 @keyframes store-footer__artifact-sway {
   from {
     transform: translateX(-13.5px);
@@ -237,7 +259,7 @@
   }
 }
 
-/* This animation moves selected artifacts diagonally. */
+/* This animation moves selected artwork diagonally. */
 @keyframes store-footer__artifact-diagonal {
   from {
     transform: translate(-13.5px, -13.5px);
@@ -248,7 +270,7 @@
   }
 }
 
-/* This animation sends selected artifacts in the opposite vertical direction. */
+/* This animation moves selected artwork upward. */
 @keyframes store-footer__artifact-rise {
   from {
     transform: translateY(13.5px);
@@ -259,86 +281,10 @@
   }
 }
 
-/* This block gives the footer artifacts different travel directions. */
-.store-footer__dots,
-.store-footer__hexagon,
-.store-footer__stripe {
-  animation-name: store-footer__artifact-sway;
-}
-
-.store-footer__plus-sign,
-.store-footer__triangle,
-.store-footer__arc {
-  animation-name: store-footer__artifact-diagonal;
-}
-
-.store-footer__ring-accent,
-.store-footer__star {
-  animation-name: store-footer__artifact-rise;
-}
-
-/* This block disables all decorative footer motion for reduced-motion preferences. */
-@media (prefers-reduced-motion: reduce) {
-  .store-footer__orbit,
-  .store-footer__diamond,
-  .store-footer__dots,
-  .store-footer__plus-sign,
-  .store-footer__hexagon,
-  .store-footer__ring-accent,
-  .store-footer__stripe,
-  .store-footer__triangle,
-  .store-footer__star,
-  .store-footer__arc {
-    animation: none;
-  }
-
-  .store-footer__watermark-track {
-    animation: none;
-    transform: none;
-  }
-
-  .store-footer__watermark-track > span:first-child {
-    margin-inline: auto;
-  }
-
-  .store-footer__watermark-track > span + span {
-    display: none;
-  }
-}
-
-/* This block centers and wraps the creator credit and footer message. */
-.store-footer__message {
-  max-width: 300px;
-  margin-inline: auto;
-  text-align: center;
-}
-
-/* This block styles the creator credit line. */
-.store-footer__creator {
-  margin: 0;
-  line-height: 1.45;
-  color: #e8dfd3;
-}
-
-/* This block gives the creator name a stronger weight. */
-.store-footer__creator span {
-  color: #fffaf4;
-  font-weight: 700;
-}
-
-/* This block styles the short footer message below the credit. */
-.store-footer__note {
-  margin: 3px 0 0;
-  color: #c5b7a6;
-}
-
-/* This block clips the moving watermark within the footer content width. */
+/* This block places the moving watermark directly below the message with a 20px gap. */
 .store-footer__watermark {
-  position: absolute;
+  position: relative;
   z-index: 1;
-  right: 0;
-  bottom: 0;
-  left: 0;
   display: flex;
   align-items: center;
   box-sizing: border-box;
@@ -346,8 +292,8 @@
   min-width: 0;
   max-width: 100%;
   min-height: 3em;
-  margin: 0;
-  padding: 0.15em 0.05em 0;
+  margin: 20px 0 0;
+  padding: 0.15em 0.05em 0.1em;
   overflow: hidden;
   color: rgb(255 250 244 / 28%);
   font-family: "DM Mono", monospace;
@@ -359,7 +305,7 @@
   pointer-events: none;
 }
 
-/* This block repeats the same text to make the rightward loop seamless. */
+/* This block makes the duplicate watermark text loop seamlessly to the right. */
 .store-footer__watermark-track {
   display: flex;
   width: max-content;
@@ -372,7 +318,7 @@
   padding-right: 3em;
 }
 
-/* This animation moves the duplicated watermark track to the right. */
+/* This animation moves the duplicated watermark track continuously rightward. */
 @keyframes store-footer__watermark-scroll-right {
   from {
     transform: translateX(-50%);
@@ -383,31 +329,22 @@
   }
 }
 
-/* This block increases the watermark to three times its base size below 550px. */
+/* This block enlarges the watermark on medium and smaller screens. */
 @media (max-width: 549px) {
   .store-footer__watermark {
     font-size: clamp(1.95rem, 8.4vw, 6rem);
   }
-
-  .store-footer__inner {
-    padding-bottom: 160px;
-  }
 }
 
-/* This block increases it to 4.5 times its base size below 425px. */
+/* This block increases watermark sizing further below 425px. */
 @media (max-width: 424px) {
   .store-footer__watermark {
     font-size: clamp(2.925rem, 12.6vw, 9rem);
   }
-
-  .store-footer__inner {
-    padding-bottom: 170px;
-  }
 }
 
-/* This block stacks footer content while keeping the message right-aligned. */
+/* This block reduces side insets and stacks footer content on narrow screens. */
 @media (max-width: 520px) {
-  /* This block keeps the footer content inset on narrow screens. */
   .store-footer__inner {
     width: calc(100% - 20px);
   }
@@ -417,10 +354,36 @@
     gap: 10px;
   }
 
-  /* This block keeps the message centered within the narrow footer. */
   .store-footer__message {
     width: 100%;
-    max-width: 300px;
+  }
+}
+
+/* This block disables decorative and watermark motion for reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .store-footer__orbit,
+  .store-footer__diamond,
+  .store-footer__dots,
+  .store-footer__plus-sign,
+  .store-footer__hexagon,
+  .store-footer__ring-accent,
+  .store-footer__stripe,
+  .store-footer__triangle,
+  .store-footer__star,
+  .store-footer__arc,
+  .store-footer__watermark-track {
+    animation: none;
+  }
+
+  .store-footer__watermark-track {
+    transform: none;
+  }
+
+  .store-footer__watermark-track > span:first-child {
     margin-inline: auto;
+  }
+
+  .store-footer__watermark-track > span + span {
+    display: none;
   }
 }
