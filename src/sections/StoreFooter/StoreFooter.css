@@ -5,14 +5,14 @@
   margin: 0;
   padding: 14px 0 10px;
   overflow: hidden;
-  border-top: 1px solid #e9e2d9;
-  background: #faf7f1;
-  color: #756d63;
   font:
     0.7rem "DM Sans",
     sans-serif;
   /* This block adds breathing room at the bottom edge of the full-width footer. */
   padding-bottom: 24px;
+  border-top: 1px solid rgb(255 250 244 / 16%);
+  background: linear-gradient(118deg, #1c262b 0%, #28252e 52%, #30251f 100%);
+  color: #c9c2b8;
 }
 
 /* This block constrains readable footer content and the watermark to 1140px. */
@@ -304,18 +304,19 @@
 .store-footer__creator {
   margin: 0;
   line-height: 1.45;
+  color: #e8dfd3;
 }
 
 /* This block gives the creator name a stronger weight. */
 .store-footer__creator span {
-  color: #28231f;
+  color: #fffaf4;
   font-weight: 700;
 }
 
 /* This block styles the short footer message below the credit. */
 .store-footer__note {
   margin: 3px 0 0;
-  color: #756d63;
+  color: #c5b7a6;
 }
 
 /* This block keeps the brand watermark readable behind the footer content. */
@@ -327,7 +328,7 @@
   left: 0;
   margin: 0;
   overflow: hidden;
-  color: rgb(40 35 31 / 16%);
+  color: rgb(255 250 244 / 28%);
   font:
     800 clamp(1rem, 4vw, 2.4rem)/1 "DM Sans",
     sans-serif;
@@ -336,7 +337,6 @@
   white-space: nowrap;
   pointer-events: none;
   /* This block makes the watermark more visible and three times taller. */
-  color: rgb(40 35 31 / 28%);
   padding-top: 8px;
   transform: scaleY(3);
   transform-origin: center bottom;
