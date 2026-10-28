@@ -1,7 +1,8 @@
 /* This block gives the editorial note a compact, contained layout. */
 .closing-note {
   position: relative;
-  width: min(100% - 32px, 1140px);
+  /* This limit keeps the editorial section compact on wide screens. */
+  width: min(100% - 32px, 750px);
   margin: 0 auto 18px;
   padding: 14px 16px;
   border-left: 3px solid #f36b35;
