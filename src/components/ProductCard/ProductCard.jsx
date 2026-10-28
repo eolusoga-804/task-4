@@ -57,10 +57,11 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
         </div>
 
         {onAddToCart && (
-          // This button adds the displayed product to the cart.
+          //  This button zooms in shortly after its product card appears.
           <button
             className="product-card__action"
             type="button"
+            style={{ animationDelay: `${index * 65 + 220}ms` }}
             onClick={() => onAddToCart(product)}
           >
             {storeContent.catalog.addToCartLabel}

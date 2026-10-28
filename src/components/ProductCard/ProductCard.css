@@ -108,6 +108,32 @@
   animation: product-card-enter 8480ms cubic-bezier(0.2, 0.75, 0.25, 1) both;
 }
 
+/* This block zooms each add-to-cart action into view after its card appears. */
+.product-card__action {
+  animation: product-card-action-zoom 360ms cubic-bezier(0.2, 0.75, 0.25, 1)
+    both;
+}
+
+/* This animation brings the action button forward with a soft zoom. */
+@keyframes product-card-action-zoom {
+  from {
+    opacity: 0;
+    transform: scale(0.86);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* This block disables the button entrance animation for reduced-motion users. */
+@media (prefers-reduced-motion: reduce) {
+  .product-card__action {
+    animation: none;
+  }
+}
+
 /* This animation brings each card up from a slightly lower position. */
 @keyframes product-card-enter {
   from {
