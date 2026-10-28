@@ -66,6 +66,8 @@ export const storeContent = {
     resultsCountLabel: "products",
     // This duration sets how long a touch press takes to open product details.
     descriptionLongPressMs: 520,
+    // This label introduces the full product description in its popup.
+    descriptionLabel: "About this find",
   },
 
   // This block centralizes footer copy and its background watermark.

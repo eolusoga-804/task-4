@@ -179,13 +179,19 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
         )}
       </div>
 
-      {/* This tooltip contains the full description for the current product. */}
+      {/* This popup presents the full product description in a clear text hierarchy. */}
       <div
         className="product-card__description-popover"
         id={`product-description-${product.id}`}
         role="tooltip"
       >
-        {product.description}
+        {/* This label identifies the information shown in the popup. */}
+        <span className="product-card__description-label">
+          {storeContent.catalog.descriptionLabel}
+        </span>
+
+        {/* This paragraph keeps the complete product description together. */}
+        <p className="product-card__description-copy">{product.description}</p>
       </div>
     </article>
   );
