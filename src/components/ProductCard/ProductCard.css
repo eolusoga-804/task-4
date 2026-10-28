@@ -219,6 +219,9 @@
     opacity 180ms ease,
     transform 180ms ease,
     visibility 180ms ease;
+  max-height: min(70vh, 100%);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* This block distinguishes the popup label from the description copy. */
