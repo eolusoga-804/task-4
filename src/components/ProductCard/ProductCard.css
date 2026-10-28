@@ -169,3 +169,66 @@
     transform: translateY(-2px);
   }
 }
+
+/* This block places the description panel directly over its product card. */
+.product-card__description-popover {
+  position: absolute;
+  z-index: 6;
+  inset: 8px;
+  overflow-y: auto;
+  padding: 14px;
+  border: 1px solid rgb(255 250 244 / 32%);
+  background: rgb(40 35 31 / 96%);
+  box-shadow: 0 12px 32px rgb(40 35 31 / 24%);
+  color: #fffaf4;
+  font:
+    0.76rem/1.55 "DM Sans",
+    sans-serif;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.96);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 180ms ease;
+}
+
+/* This block marks the image and title as keyboard-focusable triggers. */
+.product-card__image:focus-visible,
+.product-card__title:focus-visible {
+  outline: 2px solid #b64c27;
+  outline-offset: 2px;
+}
+
+/* This block reveals the popup when the image or title is hovered. */
+@media (min-width: 640px) and (hover: hover) and (pointer: fine) {
+  .product-card:has(.product-card__image:hover)
+    .product-card__description-popover,
+  .product-card:has(.product-card__title:hover)
+    .product-card__description-popover,
+  .product-card:has(.product-card__description-popover:hover)
+    .product-card__description-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+/* This block reveals the popup when keyboard focus reaches the image or title. */
+@media (min-width: 640px) {
+  .product-card:has(.product-card__image:focus-visible)
+    .product-card__description-popover,
+  .product-card:has(.product-card__title:focus-visible)
+    .product-card__description-popover {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+  }
+}
+
+/* This block disables popup transitions for reduced-motion preferences. */
+@media (prefers-reduced-motion: reduce) {
+  .product-card__description-popover {
+    transition: none;
+  }
+}

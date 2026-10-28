@@ -22,11 +22,14 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
       style={{ animationDelay: `${index * 65}ms` }}
     >
       <div className="product-card__image-wrap">
+        {/* This image can receive focus to reveal the product description. */}
         <img
           className="product-card__image"
           src={product.image}
           alt={product.title}
           loading="lazy"
+          tabIndex={0}
+          aria-describedby={`product-description-${product.id}`}
         />
 
         {product.rating?.rate >= 4.5 && (
@@ -41,7 +44,14 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
           {category?.label ?? product.category}
         </p>
 
-        <h2 className="product-card__title">{product.title}</h2>
+        {/* This heading can receive focus to reveal the product description. */}
+        <h2
+          className="product-card__title"
+          tabIndex={0}
+          aria-describedby={`product-description-${product.id}`}
+        >
+          {product.title}
+        </h2>
 
         <div className="product-card__meta">
           <span className="product-card__price">{price}</span>
@@ -67,6 +77,15 @@ export default function ProductCard({ product, index = 0, onAddToCart }) {
             {storeContent.catalog.addToCartLabel}
           </button>
         )}
+      </div>
+
+      {/* This tooltip contains the full description for the current product. */}
+      <div
+        className="product-card__description-popover"
+        id={`product-description-${product.id}`}
+        role="tooltip"
+      >
+        {product.description}
       </div>
     </article>
   );
