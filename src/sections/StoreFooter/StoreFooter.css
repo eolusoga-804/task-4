@@ -3,7 +3,7 @@
   position: relative;
   width: 100%;
   margin: 0;
-  padding: 14px 0 18px;
+  padding: 14px 0 0;
   overflow: hidden;
   border-top: 1px solid rgb(255 250 244 / 18%);
   background: linear-gradient(118deg, #1c262b 0%, #28252e 52%, #30251f 100%);
@@ -19,6 +19,9 @@
   z-index: 2;
   width: min(100% - 32px, 1140px);
   margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
 }
 
 /* This block centers the footer message within the content area. */
@@ -291,9 +294,9 @@
   width: 100%;
   min-width: 0;
   max-width: 100%;
-  min-height: 3em;
+  max-height: 1em;
   margin: 20px 0 0;
-  padding: 0.15em 0.05em 0.1em;
+  padding: 0 0.05em 0;
   overflow: hidden;
   color: rgb(255 250 244 / 28%);
   font-family: "DM Mono", monospace;
@@ -303,6 +306,7 @@
   letter-spacing: clamp(0.03em, 1.5vw, 0.55em);
   white-space: nowrap;
   pointer-events: none;
+  margin-top: 0;
 }
 
 /* This block makes the duplicate watermark text loop seamlessly to the right. */
