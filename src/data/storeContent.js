@@ -64,6 +64,8 @@ export const storeContent = {
     retryLabel: "Try again",
     // This label follows the live number of matching products.
     resultsCountLabel: "products",
+    // This duration sets how long a touch press takes to open product details.
+    descriptionLongPressMs: 520,
   },
 
   // This block centralizes footer copy and its background watermark.
