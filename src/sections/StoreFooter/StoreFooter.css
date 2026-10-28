@@ -319,37 +319,30 @@
   color: #c5b7a6;
 }
 
-/* This block keeps the brand watermark readable behind the footer content. */
+/* This block sizes and spaces the watermark to stay legible across the footer width. */
 .store-footer__watermark {
   position: absolute;
   z-index: 1;
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 0;
-  overflow: hidden;
-  color: rgb(255 250 244 / 28%);
-  font:
-    800 clamp(1rem, 4vw, 2.4rem)/1 "DM Sans",
-    sans-serif;
-  letter-spacing: 0.08em;
-  text-align: center;
-  white-space: nowrap;
-  pointer-events: none;
-  /* This block makes the watermark more visible and three times taller. */
-  padding-top: 8px;
-  transform: scaleY(3);
-  transform-origin: center bottom;
-  /* This block stretches the watermark across the full 1140px content area. */
   box-sizing: border-box;
   width: 100%;
-  min-width: 100%;
+  min-width: 0;
   max-width: 100%;
+  min-height: 3em;
+  margin: 0;
+  padding: 0.15em 0.05em 0;
+  color: rgb(255 250 244 / 28%);
+  font:
+    700 clamp(0.65rem, 2.8vw, 2rem)/3 "DM Mono",
+    monospace;
+  letter-spacing: clamp(0.03em, 1.5vw, 0.55em);
+  word-spacing: clamp(0.05em, 1.2vw, 1.5em);
   text-align: justify;
   text-align-last: justify;
-  text-justify: inter-word;
-  letter-spacing: clamp(0.08em, 0.6vw, 0.28em);
-  word-spacing: clamp(0.1em, 1.6vw, 1.2em);
+  white-space: nowrap;
+  pointer-events: none;
 }
 
 /* This block stacks footer content while keeping the message right-aligned. */
@@ -369,9 +362,5 @@
     width: 100%;
     max-width: 300px;
     margin-inline: auto;
-  }
-
-  .store-footer__watermark {
-    font-size: clamp(0.9rem, 5vw, 1.35rem);
   }
 }
