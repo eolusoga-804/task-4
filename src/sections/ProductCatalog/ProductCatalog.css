@@ -244,6 +244,14 @@
   }
 }
 
+/* This block centers catalog tools and filters on tablet and wider screens. */
+@media (min-width: 640px) {
+  .product-catalog__tools,
+  .product-catalog__filters {
+    justify-content: center;
+  }
+}
+
 @media (min-width: 640px) {
   .product-catalog__grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
