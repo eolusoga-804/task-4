@@ -10,6 +10,8 @@
   align-items: end;
   justify-content: space-between;
   gap: 12px;
+  justify-content: center;
+  text-align: center;
 }
 
 .product-catalog__eyebrow {
@@ -34,6 +36,7 @@
   overflow: hidden;
   white-space: nowrap;
   animation: product-catalog-title-type 1.4s steps(14, end) both;
+  margin-inline: auto;
 }
 
 .product-catalog__grid {
